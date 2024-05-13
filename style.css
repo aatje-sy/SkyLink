@@ -1,0 +1,18 @@
+body html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.flex {
+    display: flex;
+}
+header{
+    height: 100px;
+    width: 100%;
+    align-items: center;
+}
+.landings-img{
+    height: 700px;
+    width: 1000px;
+    object-fit: contain;
+}
