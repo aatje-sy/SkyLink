@@ -2,6 +2,8 @@ body html {
     margin: 0;
     padding: 0;
     height: 100%;
+    background-color: #FFFFFF;
+    font-family: "Mona Sans";
 }
 .flex {
     display: flex;
@@ -10,6 +12,23 @@ header{
     height: 100px;
     width: 100%;
     align-items: center;
+    font-family: "Mona Sans";
+    justify-content: space-between;
+}
+.logo{
+    margin-left: 100px;
+}
+.header-btns{
+    gap: 20px;
+    color: #777E90;
+    text-decoration: none;
+    margin-right: 80px;
+}
+.profile-btn{
+    height: 50px;
+    width: 50px;
+    margin-right: 100px;
+    border: none;
 }
 .landings-img{
     height: 700px;
