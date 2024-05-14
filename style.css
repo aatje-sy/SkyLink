@@ -19,11 +19,27 @@ header{
     margin-left: 100px;
 }
 .header-btns{
-    gap: 20px;
+    gap: 25px;
     color: #777E90;
     text-decoration: none;
     margin-right: 80px;
+    font-weight: 600;
+    overflow: hidden;
 }
+/*dit heb ik gemaakt met behulp van google*/
+.header-btns:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s;
+}
+.header-btns:hover:before {
+    width: 100%;
+}
+
 .profile-btn{
     height: 50px;
     width: 50px;
