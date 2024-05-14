@@ -24,22 +24,31 @@ header{
     text-decoration: none;
     margin-right: 80px;
     font-weight: 600;
-    overflow: hidden;
 }
-/*dit heb ik gemaakt met behulp van google*/
-.header-btns:before {
+.header-btns>a{
+    position: relative;
+    color: #777E90;
+    text-decoration: none;
+}
+.header-btns>a:hover{
+    transition: width 0.3s;
+}
+.header-btns>a::after {
     content: "";
     position: absolute;
     width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    transition: width 0.3s;
+    height: 2px; /* Adjust the height as needed */
+    bottom: -2px; /* Adjust the position as needed */
+    left: 50%;
+    background-color: currentColor;
+    transition: width 0.3s ease, left 0.3s ease;
+    transform: translateX(-50%);
 }
-.header-btns:hover:before {
+.header-btns>a:hover::after {
     width: 100%;
+    left: 0;
+    transform: translateX(0);
 }
-
 .profile-btn{
     height: 50px;
     width: 50px;
