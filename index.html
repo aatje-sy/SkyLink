@@ -1,28 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>SkyLink</title>
-</head>
-<body>
-    <header class="flex">
-        <h1 class="logo">SKYLINK</h1>
+  </head>
+  <body>
 
-        <ul class="header-btns flex">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </ul>
+
+    <header class="header" id="header">
+
+      <nav class="nav-container flex">
+
+        <a href="index.html" class="nav-logo">SKYLINK</a>
+
+
+        <div class="nav-links" id="nav-links">
+          <ul>
+            <li><a href="#" class="nav-li">Home</a></li>
+            <li><a href="#" class="nav-li">About</a></li>
+            <li><a href="#" class="nav-li">Contact</a></li>
+          </ul>
+
+          <div class="nav-close flex" id="nav-close">
+            <i class="bi bi-x-lg"></i>
+          </div>
+  
+          
+
+        </div>
+
         <a class="profile-btn" href="#">
-            <img class="profile-btn" src="imgs/profile%20btn.png" alt="Profile">
+          <img class="profile-btn" src="imgs/profile%20btn.png" alt="Profile" />
         </a>
+
+        <div class="nav-toggel flex" id="nav-toggel">
+            <i class="bi bi-list"></i>
+        </div>
+
+        
+
+
+      </nav>
     </header>
 
-    <div class="container">
+    <!-- <div class="container">
         <h1>Unlock the sky with SKYLINK</h1>
         <p>Enjoy the great experience</p>
 
@@ -36,7 +67,6 @@
             <div class="flight-end"></div>
             <div class="Search"></div>
         </div>
-    </div>
-
-</body>
+     </div> -->
+  </body>
 </html>
