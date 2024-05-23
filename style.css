@@ -1,215 +1,183 @@
-body html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 1);
-    font-family: "Mona Sans";
-}
-.flex {
-    display: flex;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  font-family: "Mona Sans";
+}
 
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
 
-.header{
+.nav-container {
+  position: relative;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  margin-left: 150px;
+  color: black;
+  font-weight: bold;
+  font-size: clamp(1.8em, 2.6vw, 4em);
+  text-decoration: none;
+}
+
+ul li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav-close,
+.nav-toggel {
+  color: black;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 1030px) {
+  .nav-links-container {
     position: fixed;
-    width: 100%;
+    left: -100%;
     top: 0;
-    left: 0;
-    
-}
-
-.nav-container{
-    position: relative;
-    height: 100px;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-container a{
-    text-decoration: none;
-}
-
-.nav-logo{
-    margin-left: 150px;
-    color: black;
-   font-weight: bold;
-   font-size: clamp(1.8em, 2.6vw, 4em);
-}
-
-/* ul{
-    width: 250px;
-    justify-content: space-between;
-}
-
-ul li{
-    text-decoration: none;
-    list-style: none;
-}
-
-ul li a{
-    color: rgba(119, 126, 144, 1);
-    font-weight: 600;
-} */
-
-.searched-container{
-    height: 900px;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-.searched-img{
-    position: absolute;
-    object-fit: cover;
-    height: 700px;
-    width: 85%;
-    border-radius: 30px;
-
-}
-.search-panel-titleTXT{
-    position: absolute;
-    font-size: 30px;
-    text-align: center;
-    margin-bottom: 150px;
-    font-family: "Mona Sans";
-}
-.search-Bar {
-    position: absolute;
-    align-items: center;
-    height: 200px;
-    width: 60%;
-    margin-top: 700px;
-    border-radius: 30px;
     background-color: white;
-    box-shadow: 0px 0px 39px -7px black;
-    font-family: "Mona Sans";
-}
-.vacation-Info-Input {
-    transition: all 0.3s ease;
-    padding: 20px;
-    margin-left: 50px;
-    width: 250px;
-    gap: 5px;
-}
-.vacation-Info-Input.focused {
-    transition: box-shadow .2s, background .2s;
-    box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.57);
-    border-radius: 10px;
-    padding-left: 20px;
-
-}
-.input-icon {
-    object-fit: contain;
-    height: 30px;
-    width: 30px;
-}
-.location-input {
-    font-size: 25px;
-    font-weight: bolder;
-    width: 200px;
-    border: none;
-    outline: none;
-    color: black;
-}
-.search-txt{
-    font-weight: bold;
-    color: #777E90;
-}
-.location-input::placeholder {
-    color: black;
-    opacity: 1;
-}
-.nav-close,.nav-toggel{
-    color: black;
-    cursor: pointer;
-    font-size: 2rem;
-}
-
-
-
-
-@media screen and (max-width: 1150px){
-
-    .nav-links{
-        position: fixed;
-        left: 0;
-        top: 0;
-        background-color: white;
-        width: 100%;
-        height: 100%;
-        padding: 6rem 3.5rem 4.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        transition: left .4s;
-        
-    }
-    
-}
-
-
-.nav-links{
-    flex-direction: column;
-    row-gap: 2rem;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*dit heb ik gemaakt met behulp van google*/
-/* .header-btns:before { 
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    transition: width 0.3s;
-}
-.header-btns:hover:before {
     width: 100%;
+    height: 100%;
+    padding: 6rem 3.5rem 4.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: left 0.4s;
+  }
+
+  .nav-li {
+    transform: translateX(-150px);
+    visibility: hidden;
+    transition: transform 0.4s ease-out, visibility 0.4s;
+  }
+
+  .nav-li:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  .nav-li:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+  .nav-li:nth-child(4) {
+    transition-delay: 0.4s;
+  }
 }
 
-.profile-btn{
-    height: 50px;
-    width: 50px;
-    margin-right: 100px;
-    border: none;
-    background-color: #225FFE;
-    border-radius: 50%;
-    z-index: -1;
+@media screen and (max-width: 600px) {
+  .nav-logo {
+    margin-left: 70px;
+  }
 }
-.icon{
-    display: block;
-    height: 40px;
-    width: 40px;
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
 }
-.landings-img{
-    height: 700px;
-    width: 1000px;
-    object-fit: contain;
-} */
+
+.nav-item {
+  position: relative;
+  color: rgba(119, 126, 144, 1);
+  font-size: 24px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.4s;
+  text-decoration: none;
+}
+
+.nav-item span {
+  position: relative;
+  transition: margin 0.5s;
+}
+
+.nav-item span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: rgba(119, 126, 144, 1);
+  transition: width 0.4s ease-out;
+}
+
+.nav-item:hover span {
+  margin-left: 2rem;
+}
+
+.nav-item:hover span::after {
+  width: 100%;
+}
+
+.nav-links:has(.nav-item:hover) .nav-item:not(:hover) {
+  opacity: 0.4;
+}
+
+.nav-close {
+  position: absolute;
+  top: 2rem;
+  right: 4rem;
+}
+
+.show-nav {
+  left: 0;
+}
+
+.show-nav .nav-li {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+@media screen and (min-width: 1030px) {
+  .nav-container {
+    margin-inline: auto;
+    height: 100px;
+  }
+
+  .nav-close,
+  .nav-toggel {
+    display: none;
+  }
+
+  .nav-item {
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    column-gap: 2.5rem;
+  }
+}
+
+.profile-btn-container {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  margin-right: 30px;
+  width: 50px;
+}
