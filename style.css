@@ -3,7 +3,9 @@
   margin: 0;
   padding: 0;
 }
-
+.flex{
+  display: flex;
+}
 body,
 html {
   margin: 0;
@@ -208,7 +210,7 @@ ul li {
   position: absolute;
   align-items: center;
   height: 200px;
-  width: 60%;
+  width: 70%;
   margin-top: 700px;
   border-radius: 30px;
   background-color: white;
@@ -219,8 +221,8 @@ ul li {
   transition: all 0.3s ease;
   padding: 20px;
   margin-left: 50px;
-  width: 250px;
-  gap: 5px;
+  width: 350px;
+  gap: 10px;
 }
 .vacation-Info-Input.focused {
   transition: box-shadow .2s, background .2s;
@@ -234,18 +236,46 @@ ul li {
   height: 30px;
   width: 30px;
 }
-.location-input {
+.Search-input {
   font-size: 25px;
   font-weight: bolder;
-  width: 200px;
   border: none;
   outline: none;
   color: black;
+}
+.location-input{
+  width: 200px;
+}
+.check-in-input {
+
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
 }
 .search-txt{
   font-weight: bold;
   color: #777E90;
 }
+.add-date-txt{
+  margin-left: 30px;
+}
 .location-input::placeholder {
   color: black;
+}
+.search-btn-container{
+  height: 150px;
+
+}
+.search-btn{
+  background-color: #225FFE;
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+
+}
+@media screen and (max-width: 600px) {
+  .search-Bar{
+    flex-wrap: wrap;
+  }
 }

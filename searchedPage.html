@@ -16,6 +16,45 @@
 </head>
 <body>
 
+<header class="header" id="header">
+    <nav class="nav-container">
+        <a href="index.html" class="nav-logo">SKYLINK</a>
+
+        <div id="nav-links" class="nav-links-container">
+            <ul class="nav-links">
+                <li class="nav-li">
+                    <a href="index.html" class="nav-item"><span>Home</span></a>
+                </li>
+
+                <li class="nav-li">
+                    <a href="#" class="nav-item"><span>About</span></a>
+                </li>
+                <li class="nav-li">
+                    <a href="#" class="nav-item"><span>Contact</span></a>
+                </li>
+            </ul>
+
+            <div id="nav-close" class="nav-close">
+                <i class="bi bi-x-lg"></i>
+            </div>
+        </div>
+
+        <div class="profile-btn-container">
+            <button class="profile-btn">
+                <img
+                        class="profile-btn"
+                        src="imgs/profile%20btn.png"
+                        alt="Profile"
+                />
+            </button>
+
+            <div id="nav-toggle" class="nav-toggel">
+                <i class="bi bi-list"></i>
+            </div>
+        </div>
+    </nav>
+</header>
+
 
     <div class="searched-container flex">
         <img class="searched-img" src="imgs/seachedIMG.png" alt="Error">
@@ -28,30 +67,36 @@
             <div class="vacation-Info-Input flex">
                 <img class="input-icon" src="imgs/locationIcon.png" alt="">
                 <div>
-                    <input class="location-input" type="text" placeholder="Location">
+                    <input class="Search-input location-input" type="text" placeholder="Location">
                     <p class="search-txt">Where are you going?</p>
                 </div>
             </div>
 
             <div class="vacation-Info-Input">
-                <img class="input-icon" src="imgs/dateIcon.png" alt="">
-                <div>
-                    <input class="location-input" type="date" placeholder="Check in">
-                    <p class="search-txt">Add Date</p>
+                <div class="flex">
+                    <img class="input-icon" src="imgs/dateIcon.png" alt="">
+                    <input class="Search-input check-in-input flex" type="date" placeholder="Check in">
                 </div>
+                <p class="search-txt add-date-txt">Add Date</p>
             </div>
+
             <div class="vacation-Info-Input">
-                <img class="input-icon" src="imgs/dateIcon.png" alt="">
-                <div>
-                    <input class="check-out-input" type="date" placeholder="Check in">
-                    <p class="search-txt">Add Date</p>
+                <div class="flex">
+                    <img class="input-icon" src="imgs/dateIcon.png" alt="">
+                    <input class="Search-input check-out-input flex" type="text" onclick="(this.type='date')" placeholder="Check in">
                 </div>
-            </div>
+                <p class="search-txt add-date-txt">Add Date</p>
             </div>
 
-
-            <div class="vacation-Info-Input"></div>
+            <div class="vacation-Info-Input">
+                <button class="search-btn">
+                    <a href="#">
+                        <img src="imgs/search-icon.png" alt="??">
+                    </a>
+                </button>
+            </div>
         </div>
+    </div>
 
     <script src="scripts.js"></script>
 </body>
