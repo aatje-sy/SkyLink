@@ -191,18 +191,6 @@ ul li {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*Searched page styling*/
 .searched-container{
   height: 900px;
@@ -220,33 +208,36 @@ ul li {
 }
 .search-panel-titleTXT{
   position: absolute;
-  font-size: 30px;
+  font-size: clamp(18px, 3vw, 30px);
   text-align: center;
   margin-bottom: 150px;
 }
 .search-Bar {
-  position: absolute;
+  z-index: 2;
+  justify-content: space-evenly;
   align-items: center;
-  height: 200px;
-  width: 70%;
+  max-height: 600px;
+  min-height: 200px;
+  width: 75%;
   margin-top: 700px;
   border-radius: 30px;
   background-color: white;
   box-shadow: 0px 0px 39px -7px black;
-
+  flex-wrap: wrap;
+  padding: 1em;
+  font-size: clamp(1.8em, 2.6vw, 4em);
 }
 .vacation-Info-Input {
   transition: all 0.3s ease;
-  padding: 20px;
-  margin-left: 50px;
-  width: 350px;
+  padding: 10px;
+  width: 230px;
   gap: 10px;
 }
 .vacation-Info-Input.focused {
   transition: box-shadow .2s, background .2s;
   box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.57);
   border-radius: 10px;
-  padding-left: 20px;
+  padding-left: 10px;
 
 }
 .input-icon {
@@ -255,7 +246,7 @@ ul li {
   width: 30px;
 }
 .Search-input {
-  font-size: 25px;
+  font-size: clamp(20px, 3vw, 25px);
   font-weight: bolder;
   border: none;
   outline: none;
@@ -272,8 +263,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   -webkit-appearance: none;
 }
 .search-txt{
-  font-weight: bold;
+  font-weight: 400;
   color: #777E90;
+  font-size: clamp(20px, 3vw, 26px);
 }
 .add-date-txt{
   margin-left: 30px;
@@ -281,19 +273,44 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .location-input::placeholder {
   color: black;
 }
-.search-btn-container{
-  height: 150px;
 
-}
 .search-btn{
   background-color: #225FFE;
   border-radius: 50%;
   height: 70px;
   width: 70px;
+}
+.vacations-container{
+  gap: 30px;
+  flex-direction: column;
+}
+.searched-vacations-title{
 
 }
-@media screen and (max-width: 600px) {
+.vacation-search-result{
+  height: 800px;
+  width: ;
+}
+.vacations{
+  height: 200px;
+}
+.vacation-base-info{
+
+  height: 80px;
+  width: 400px;
+  background-color: red;
+}
+@media screen and (max-width: 1200px) {
   .search-Bar{
     flex-wrap: wrap;
+
+  }
+  .vacation-Info-Input{
+    width: 200px;
+  }
+}
+@media screen and (max-width: 1080px){
+  .search-Bar{
+
   }
 }
