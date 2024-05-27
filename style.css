@@ -2,7 +2,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
 }
+
+
 .flex{
   display: flex;
 }
@@ -13,7 +16,7 @@ html {
   height: 100%;
   width: 100%;
   background-color: rgba(255, 255, 255, 1);
-
+  font-family: "Inter", sans-serif;
 }
 
 .header {
@@ -35,9 +38,9 @@ html {
 .nav-logo {
   margin-left: 150px;
   color: black;
-  font-weight: bold;
   font-size: clamp(1.8em, 2.6vw, 4em);
   text-decoration: none;
+  font-weight: bold;
 }
 
 ul li {
@@ -105,6 +108,7 @@ ul li {
   align-items: center;
   transition: opacity 0.4s;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .nav-item span {
@@ -138,7 +142,7 @@ ul li {
 .nav-close {
   position: absolute;
   top: 2rem;
-  right: 4rem;
+  right: 5rem;
 }
 
 .show-nav {
@@ -168,13 +172,14 @@ ul li {
   .nav-links {
     flex-direction: row;
     column-gap: 2.5rem;
+    margin-right: 100px;
   }
 }
 
 .profile-btn-container {
   display: flex;
   align-items: center;
-  margin-right: 50px;
+  margin-right: 80px;
 }
 
 .profile-btn {
@@ -183,6 +188,20 @@ ul li {
   margin-right: 30px;
   width: 50px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*Searched page styling*/
 .searched-container{
