@@ -27,11 +27,15 @@ document.addEventListener('DOMContentLoaded', function() {
     locationInput.addEventListener('input', function() {
         if (this.value.trim() !== '') {
             vacationInfoInput.classList.add('focused');
+            vacationInfoInput.classList.add('expanded');
         } else {
             vacationInfoInput.classList.remove('focused');
+            vacationInfoInput.classList.remove('expanded');
         }
     });
 });
+
+
 
 
 

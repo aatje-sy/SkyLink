@@ -230,8 +230,7 @@ ul li {
 .vacation-Info-Input {
   transition: all 0.3s ease;
   padding: 10px;
-  width: 230px;
-  gap: 10px;
+  width: 260px;
 }
 .vacation-Info-Input.focused {
   transition: box-shadow .2s, background .2s;
@@ -239,6 +238,10 @@ ul li {
   border-radius: 10px;
   padding-left: 10px;
 
+}
+.vacation-Info-Input.expanded {
+  width: 450px;
+  transition: width 0.5s ease;
 }
 .input-icon {
   object-fit: contain;
@@ -260,12 +263,13 @@ ul li {
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
-  -webkit-appearance: none;
 }
 .search-txt{
-  font-weight: 400;
+  font-weight: 450;
   color: #777E90;
-  font-size: clamp(20px, 3vw, 26px);
+  margin-left: 30px;
+  font-size: clamp(18px, 2.5vw, 22px);
+  width: 300px;
 }
 .add-date-txt{
   margin-left: 30px;
@@ -284,21 +288,38 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   gap: 30px;
   flex-direction: column;
 }
-.searched-vacations-title{
-
+.title-searchpage{
+  font-size: clamp(20px, 3.2vw, 25px);
 }
 .vacation-search-result{
   height: 800px;
-  width: ;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
 }
 .vacations{
   height: 200px;
+  width: auto;
 }
 .vacation-base-info{
-
-  height: 80px;
-  width: 400px;
-  background-color: red;
+  height: 100px;
+  width: auto;
+  padding: 30px;
+  margin-top: -20px;
+  z-index: 3;
+  box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.57);
+  background-color: white;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.vacation-name-txt{
+  flex-direction: column;
+  gap: 10px;
+  color: black;
 }
 @media screen and (max-width: 1200px) {
   .search-Bar{
