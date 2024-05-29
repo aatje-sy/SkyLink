@@ -16,9 +16,34 @@ if (navClose) {
   });
 }
 
+        
+//* profile photo wrap */
+document.addEventListener("DOMContentLoaded", function() {
+    const subMenu = document.getElementById("subMenu");
+    const profileBtn = document.querySelector(".profile-btn");
+  
+    document.addEventListener("click", function(event) {
+      if (event.target === profileBtn) {
+        subMenu.classList.toggle("open-menu");
+      } else {
+        subMenu.classList.remove("open-menu");
+      }
+    });
+});
 
 
+document.addEventListener("DOMContentLoaded", function(){
+    const loginPopup = document.getElementById("login-popup");
+    const closePopup = document.getElementById("popup-close");
+    const profileBtn = document.querySelector(".profile-btn");
 
+    
+    profileBtn.addEventListener("click", function(){
+        loginPopup.style.display = "block";
+    })
+
+})
+    
 
 document.addEventListener('DOMContentLoaded', function() {
     const locationInput = document.querySelector('.location-input');
@@ -34,8 +59,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-//this is the check in input tye changer:
-
-
-
