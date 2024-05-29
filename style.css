@@ -500,10 +500,11 @@ input[type="text"], input[type="password"]{
   padding-left: 50px;
 }
 .title-searchpage{
-  font-size: clamp(20px, 3.2vw, 25px);
+  font-size: clamp(20px, 2.6vw, 23px);
 }
 .vacation-search-result{
-  height: 800px;
+  height: auto;
+  padding-bottom: 100px;
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -546,6 +547,51 @@ input[type="text"], input[type="password"]{
   align-items: center;
   border-top: solid #AAAAAA 1px;
   color: #777E90;
+  padding: 100px;
+  flex-wrap: wrap;
+}
+.footer-containers{
+  flex-direction: column;
+  gap: 20px;
+}
+.icons-container{
+  gap: 10px;
+}
+.icons-container i{
+  font-size: 30px;
+}
+.newsletter-input-container{
+  align-items: center;
+}
+.newsletter-input{
+  height: 35px;
+  width: 250px;
+  border-radius: 15px;
+  border: solid #AAAAAA 1px;
+  padding-left: 15px;
+  font-size: 10px;
+  color: #AAAAAA;
+}
+.newsletter-submit{
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  border: none;
+  background-color: #225FFE;
+  justify-content: center;
+  align-items: center;
+  margin-left: -30px;
+}
+
+@media screen and (min-device-width: 1350px) {
+  .title-searchpage{
+    justify-content: flex-start;
+    margin-left: 50px;
+  }
+  .vacation-search-result{
+    justify-content: space-evenly;
+  }
+
 }
 @media screen and (max-width: 1200px) {
   .search-txt{
@@ -564,6 +610,10 @@ input[type="text"], input[type="password"]{
     width: 200px;
     justify-content: center;
   }
+  .footer{
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 }
 @media screen and (max-width: 800px) {
   .search-btn-container{
@@ -572,6 +622,10 @@ input[type="text"], input[type="password"]{
   }
   .search-Bar{
     justify-content: flex-start;
+  }
+  .footer{
+    align-items: center;
+
   }
 }
 @media screen and (max-width: 450px){
