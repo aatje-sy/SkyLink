@@ -421,35 +421,40 @@ input[type="text"], input[type="password"]{
 }
 .search-panel-titleTXT{
   position: absolute;
-  font-size: 30px;
+  font-size: clamp(18px, 3vw, 30px);
   text-align: center;
   margin-bottom: 150px;
-  font-family: "Mona Sans";
 }
 .search-Bar {
-  position: absolute;
+  z-index: 2;
+  justify-content: space-evenly;
   align-items: center;
-  height: 200px;
-  width: 70%;
+  max-height: 600px;
+  min-height: 200px;
+  width: 78%;
   margin-top: 700px;
   border-radius: 30px;
   background-color: white;
   box-shadow: 0px 0px 39px -7px black;
-  font-family: "Mona Sans";
+  flex-wrap: wrap;
+  padding: 0.5em;
+  font-size: clamp(1.8em, 2.6vw, 4em);
 }
 .vacation-Info-Input {
   transition: all 0.3s ease;
-  padding: 20px;
-  margin-left: 50px;
-  width: 350px;
-  gap: 10px;
+  padding: 10px;
+  width: 260px;
 }
 .vacation-Info-Input.focused {
   transition: box-shadow .2s, background .2s;
   box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.57);
   border-radius: 10px;
-  padding-left: 20px;
+  padding-left: 10px;
 
+}
+.vacation-Info-Input.expanded {
+  width: 350px;
+  transition: width 0.5s ease;
 }
 .input-icon {
   object-fit: contain;
@@ -457,7 +462,7 @@ input[type="text"], input[type="password"]{
   width: 30px;
 }
 .Search-input {
-  font-size: 25px;
+  font-size: clamp(16px, 2.7vw, 21px);
   font-weight: bolder;
   border: none;
   outline: none;
@@ -466,36 +471,163 @@ input[type="text"], input[type="password"]{
 .location-input{
   width: 200px;
 }
-.check-in-input {
-
-}
-input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none;
-  -webkit-appearance: none;
-}
 .search-txt{
-  font-weight: bold;
+  font-weight: 450;
   color: #777E90;
+  font-size: clamp(18px, 2.4vw, 20px);
+  width: 250px;
 }
-.add-date-txt{
+.location-txt{
   margin-left: 30px;
 }
 .location-input::placeholder {
   color: black;
 }
-.search-btn-container{
-  height: 150px;
-
-}
 .search-btn{
   background-color: #225FFE;
   border-radius: 50%;
+  border: none;
   height: 70px;
   width: 70px;
-
 }
-@media screen and (max-width: 600px) {
+.search-icon{
+  height: 35px;
+  width: 35px;
+}
+.vacations-container{
+  gap: 30px;
+  flex-direction: column;
+  padding-left: 50px;
+}
+.title-searchpage{
+  font-size: clamp(20px, 3.2vw, 25px);
+}
+.vacation-search-result{
+  height: 800px;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-right: 100px;
+}
+.vacations{
+  margin-bottom: 50px;
+  width: auto;
+}
+.vacation-img{
+  height: 350px;
+  width: 350px;
+  margin-right: 20px;
+  object-fit: cover;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.vacation-base-info{
+  height: 100px;
+  width: auto;
+  padding: 30px;
+  margin-right: 20px;
+  margin-top: -10px;
+  box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.57);
+  background-color: white;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.vacation-name-txt{
+  flex-direction: column;
+  gap: 10px;
+  color: black;
+}
+.footer{
+  height: 200px;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top: solid #AAAAAA 1px;
+  color: #777E90;
+}
+@media screen and (max-width: 1200px) {
+  .search-txt{
+    width: 200px;
+  }
+
+  .vacation-search-result{
+    justify-content: center;
+  }
+  .title-searchpage{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .search-btn-container{
+    width: 200px;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 800px) {
+  .search-btn-container{
+    width: 420px;
+    justify-content: flex-end;
+  }
   .search-Bar{
-    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 450px){
+  .search-Bar{
+    justify-content: space-evenly;
+  }
+  .vacation-search-result{
+    justify-content: flex-start;
+  }
+  .title-searchpage{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .vacations-container{
+    padding-left: 25px;
+  }
+  .location-input{
+    width: 175px;
+  }
+  .vacation-Info-Input.expanded {
+    width: 250px;
+    transition: width 0.5s ease;
+  }
+  .search-btn{
+    background-color: #225FFE;
+    border-radius: 50%;
+    border: none;
+    height: 60px;
+    width: 60px;
+  }
+  .search-icon{
+    height: 30px;
+    width: 30px;
+  }
+  .vacations-container{
+    padding-left: 50px;
+  }
+  .vacation-img {
+    height: 300px;
+    width: 300px;
+  }
+}
+@media screen and (max-width: 375px){
+  .location-input{
+    width: 150px;
+  }
+  .vacation-Info-Input.expanded {
+    width: 200px;
+    transition: width 0.5s ease;
+  }
+  .vacation-img {
+    height: 275px;
+    width: 275px;
+  }
+  .vacations-container{
+    padding-left: 30px;
   }
 }

@@ -64,39 +64,108 @@
         </div>
 
         <div class="search-Bar flex">
-            <div class="vacation-Info-Input flex">
-                <img class="input-icon" src="imgs/locationIcon.png" alt="">
-                <div>
+            <div class="vacation-Info-Input">
+                <div style="gap: 10px" class="flex">
+                    <img class="input-icon" src="imgs/locationIcon.png" alt="">
                     <input class="Search-input location-input" type="text" placeholder="Location">
-                    <p class="search-txt">Where are you going?</p>
                 </div>
+                <p class="search-txt location-txt">Where are you going?</p>
+
             </div>
 
             <div class="vacation-Info-Input">
-                <div class="flex">
-                    <img class="input-icon" src="imgs/dateIcon.png" alt="">
+                <div style="gap: 10px" class="flex">
                     <input class="Search-input check-in-input flex" type="date" placeholder="Check in">
                 </div>
-                <p class="search-txt add-date-txt">Add Date</p>
+                <p class="search-txt">Departure</p>
             </div>
 
             <div class="vacation-Info-Input">
-                <div class="flex">
-                    <img class="input-icon" src="imgs/dateIcon.png" alt="">
-                    <input class="Search-input check-out-input flex" type="text" onclick="(this.type='date')" placeholder="Check in">
+                <div style="gap: 10px" class="flex">
+                    <input class="Search-input check-out-input flex" type="date" placeholder="Check in">
                 </div>
-                <p class="search-txt add-date-txt">Add Date</p>
+                <p class="search-txt">Arrival</p>
             </div>
 
-            <div class="vacation-Info-Input">
+            <div class="search-btn-container flex">
                 <button class="search-btn">
                     <a href="#">
-                        <img src="imgs/search-icon.png" alt="??">
+                        <img class="search-icon" src="imgs/search-icon.png" alt="??">
                     </a>
                 </button>
             </div>
         </div>
     </div>
+
+    <div style="height: 150px"></div>
+
+    <div class="vacations-container flex" >
+        <div class="title-searchpage">
+            <h1 class="">Places to stay</h1>
+        </div>
+
+        <div class="vacation-search-result flex">
+            <div class="vacations">
+                <a href="vacation-page.html" style="text-decoration: none">
+                    <img class="vacation-img" src="imgs/italian-land.jpg" alt="">
+                    <div class="vacation-base-info flex">
+                        <div class="vacation-name-txt flex">
+                            <h3 style="font-weight: 600;">Italian Landscape</h3>
+                            <p style="text-align: center; color: #AAAAAA"><img src="imgs/coffee-icon.png" alt="">  Breakfast included</p>
+                        </div>
+                        <div class="price-vacation" style="color: #57C27D">€129</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="vacations">
+                <a href="vacation-page.html" style="text-decoration: none">
+                    <img class="vacation-img" src="imgs/italian-land.jpg" alt="">
+                    <div class="vacation-base-info flex">
+                        <div class="vacation-name-txt flex">
+                            <h3 style="font-weight: 600;">Italian Landscape</h3>
+                            <p style="text-align: center; color: #AAAAAA"><img src="imgs/coffee-icon.png" alt="">  Breakfast included</p>
+                        </div>
+                        <div class="price-vacation" style="color: #57C27D">€129</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="vacations">
+                <a href="vacation-page.html" style="text-decoration: none">
+                    <img class="vacation-img" src="imgs/italian-land.jpg" alt="">
+                    <div class="vacation-base-info flex">
+                        <div class="vacation-name-txt flex">
+                            <h3 style="font-weight: 600;">Italian Landscape</h3>
+                            <p style="text-align: center; color: #AAAAAA"><img src="imgs/coffee-icon.png" alt="">  Breakfast included</p>
+                        </div>
+                        <div class="price-vacation" style="color: #57C27D">€129</div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+<footer class="footer flex">
+    <div>
+        <h1 style="color: black">SKYLINK</h1>
+    </div>
+    <div class="footer-containers">
+        <h3>FAQ</h3>
+        <h3>Support</h3>
+    </div>
+    <div class="footer-containers">
+        <h3>Follow Us</h3>
+        <div class="flex">
+            <!icons/imgs>
+        </div>
+    </div>
+    <div class="footer-containers">
+        <h3>Newsletter</h3>
+        <input type="email">
+    </div>
+</footer>
 
     <script src="scripts.js"></script>
 </body>
