@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 })
     
-
+//this is the expand of the searchbar
 document.addEventListener('DOMContentLoaded', function() {
     const locationInput = document.querySelector('.location-input');
     const vacationInfoInput = document.querySelector('.vacation-Info-Input');
@@ -59,3 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
+
