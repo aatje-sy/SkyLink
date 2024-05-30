@@ -16,12 +16,12 @@ if (navClose) {
   });
 }
 
-        
+
 //* profile photo wrap */
 document.addEventListener("DOMContentLoaded", function() {
     const subMenu = document.getElementById("subMenu");
     const profileBtn = document.querySelector(".profile-btn");
-  
+
     document.addEventListener("click", function(event) {
       if (event.target === profileBtn) {
         subMenu.classList.toggle("open-menu");
@@ -36,13 +36,39 @@ document.addEventListener("DOMContentLoaded", function(){
     const loginPopup = document.getElementById("login-popup");
     const closePopup = document.getElementById("popup-close");
     const profileBtn = document.querySelector(".profile-btn");
+    const registerPopup = document.getElementById("register-popup");
+    const closePopup2 = document.getElementById("popup-close2");
+    const registerLink = document.getElementById("register-link");
 
-    
     profileBtn.addEventListener("click", function(){
         loginPopup.style.display = "block";
     })
+    closePopup.addEventListener("click", function (){
+        loginPopup.style.display = "none";
+    })
+    registerLink.addEventListener("click", function (){
+        registerPopup.style.display = "block";
+    })
+    closePopup2.addEventListener("click", function (){
+        registerPopup.style.display = "none";
+        window.location.href = "index.html";
+    })
+    window.addEventListener("click", function (event) {
+        if (event.target == loginPopup){
+            loginPopup.style.display = "none";
+        }
+    })
 
 })
+
+
+
+
+
+
+
+
+
     
 //this is the expand of the searchbar
 document.addEventListener('DOMContentLoaded', function() {
