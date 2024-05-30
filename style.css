@@ -213,8 +213,8 @@ ul li {
 
 .sub-menu-wrap {
   position: absolute;
-  top: 100%;
-  right: 5%;
+  top: 91%;
+  right: 6%;
   width: 390px;
   height: 200px;
   overflow: visible;
@@ -312,16 +312,16 @@ ul li {
 }
 
 
+
+
 /* login popup */
 .login-popup-container{
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
 }
 .login-content{
   background: white;
@@ -330,6 +330,7 @@ ul li {
   max-width: 700px;
   padding: 2em;
   border-radius: 20px;
+  position: relative;
 }
 .login-content h2{
   font-weight: 600;
@@ -338,6 +339,7 @@ ul li {
 .login-content i{
   font-size: 26px;
   position: relative;
+  cursor: pointer;
   left: 26rem;
   bottom: 3.2rem;
 }
@@ -395,6 +397,13 @@ input[type="text"], input[type="password"]{
 .register-link:hover{
   color: #0042eb;
 }
+.register-info-container{
+  display: flex;
+  justify-content: space-between;
+}
+.register-info-container input{
+  width: 210px;
+}
 
 
 
@@ -406,7 +415,7 @@ input[type="text"], input[type="password"]{
 
 /*Searched page styling*/
 .searched-container{
-  height: 900px;
+  height: 912px;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -424,6 +433,16 @@ input[type="text"], input[type="password"]{
   font-size: clamp(18px, 3vw, 30px);
   text-align: center;
   margin-bottom: 150px;
+}
+.search-panel-titleTXT h1{
+  font-size: clamp(2em, 4vw, 5em);
+  margin-right: 2em;
+  margin-left: 2em;
+  margin-bottom: 10px;
+}
+.search-panel-titleTXT p{
+  font-size: clamp(15px, 1.7vw, 2.5em);
+  color: #23262F;
 }
 .search-Bar {
   z-index: 2;
