@@ -18,12 +18,12 @@
 
 <header class="header" id="header">
     <nav class="nav-container">
-        <a href="index.html" class="nav-logo">SKYLINK</a>
+        <a href="index.php" class="nav-logo">SKYLINK</a>
 
         <div id="nav-links" class="nav-links-container">
             <ul class="nav-links">
                 <li class="nav-li">
-                    <a href="index.html" class="nav-item"><span>Home</span></a>
+                    <a href="index.php" class="nav-item"><span>Home</span></a>
                 </li>
 
                 <li class="nav-li">
@@ -106,7 +106,7 @@
 
         <div class="vacation-search-result flex">
             <div class="vacations">
-                <a href="vacation-page.html" style="text-decoration: none">
+                <a href="vacation-page.php" style="text-decoration: none">
                     <img class="vacation-img" src="imgs/italian-land.jpg" alt="">
                     <div class="vacation-base-info flex">
                         <div class="vacation-name-txt flex">
@@ -119,7 +119,7 @@
             </div>
 
             <div class="vacations">
-                <a href="vacation-page.html" style="text-decoration: none">
+                <a href="vacation-page.php" style="text-decoration: none">
                     <img class="vacation-img" src="imgs/italian-land.jpg" alt="">
                     <div class="vacation-base-info flex">
                         <div class="vacation-name-txt flex">
@@ -132,7 +132,7 @@
             </div>
 
             <div class="vacations">
-                <a href="vacation-page.html" style="text-decoration: none">
+                <a href="vacation-page.php" style="text-decoration: none">
                     <img class="vacation-img" src="imgs/italian-land.jpg" alt="">
                     <div class="vacation-base-info flex">
                         <div class="vacation-name-txt flex">

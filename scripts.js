@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(){
     })
     closePopup2.addEventListener("click", function (){
         registerPopup.style.display = "none";
-        window.location.href = "index.html";
+        window.location.href = "index.php";
     })
     window.addEventListener("click", function (event) {
         if (event.target == loginPopup){
