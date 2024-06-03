@@ -725,7 +725,19 @@ input[type="text"], input[type="password"]{
   flex-direction: column;
   gap: 25px;
 }
+.adminPanel-Container{
+  height: 600px;
+  width: 100%;
+  align-items: center;
+}
+.adminpanel-navbar{
+  height: 400px;
+  width: 220px;
+  box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.57);
+}
+.addTravelBtn{
 
+}
 
 .footer{
   height: 200px;
