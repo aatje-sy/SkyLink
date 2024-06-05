@@ -728,16 +728,74 @@ input[type="text"], input[type="password"]{
 .adminPanel-Container{
   height: 600px;
   width: 100%;
-  align-items: center;
+  gap: 20px;
 }
 .adminpanel-navbar{
   height: 400px;
   width: 220px;
   box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.57);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
-.addTravelBtn{
+.nav-top-section{
+  height: 150px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.nav-bottom-section{
+  height: 200px;
+  width: 100%;
+  margin-right: -20px;
+}
+.admin-table-container{
+  width: 100%;
+}
+.admin-page-Head{
+  height: 100px;
+  width: 98%;;
+}
+.admin-little-header{
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.add-Travel-btn{
+  height: 50px;
+  width: 200px;
+  background-color: #225FFE;
+  text-align: center;
+  align-content: center;
+  border-radius: 5px;
+}
+table{
+  width: 100%;
+}
+.table-headers{
+  color: #ACACAC;
+  font-size: clamp(10px, 1.2vw, 13px);
+}
+.vacation-bar{
+  height: 100px;
+}
+.column-sections{
+  text-align: center;
+  height: 100px;
+}
+.admin-vacation-img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+.admin-button{
+  height: 100px;
+  width: 50px;
+  text-align: center;
+  align-content: center;
+}
 
-}
+
 
 .footer{
   height: 200px;
