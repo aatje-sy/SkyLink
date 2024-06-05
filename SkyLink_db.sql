@@ -13,7 +13,7 @@ INSERT INTO flights (flight_name, discription, price) VALUES ('eerste vlucht', '
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE `users` (
-                         `id` int(11) NOT NULL,
+                         `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                          `name` varchar(255) NOT NULL,
                          `lastName` varchar(255) NOT NULL,
                          `email` varchar(255) NOT NULL,
