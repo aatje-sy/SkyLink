@@ -264,11 +264,11 @@ ul li {
   font-weight: bold;
   transition: color 0.3s ease, font-weight 0.3s ease;
 }
-.login-btn-container{
+.account-btn-container{
   display: flex;
   justify-content: space-evenly;
 }
-.login-btn{
+.account-btn{
   width: 140px;
   height: 40px;
   background-color: #225FFE;

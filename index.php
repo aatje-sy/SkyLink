@@ -1,3 +1,36 @@
+<?php
+require_once ('connect.php');
+/**
+ * @var $pdo;
+ */
+
+//inloggen
+session_start();
+
+
+if (isset($_POST["loginSubmit"])){
+    $loginEmail = $_POST["loginEmail"];
+    $loginPassword = $_POST["loginPassword"];
+    $sqlLogin = "SELECT * FROM users WHERE email = '$loginEmail'";
+    $resultLogin = $pdo->query($sqlLogin);
+    $fetchLogin = $resultLogin->fetch();
+    if ($fetchLogin){
+        if (password_verify($loginPassword, $fetchLogin['password'])){
+            $_SESSION["loggedUser"] = "yes";
+            header("location: users-page.php");
+            exit();
+
+        }else{
+            echo "Wrong password";
+        }
+    }else{
+        echo "This email does not exist";
+    }
+}
+?>
+
+
+<!--index pagian-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +46,7 @@
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
             rel="stylesheet"
     />
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="imgs/tab-logo.png"/>
     <link rel="stylesheet" href="style.css"/>
     <script src="scripts.js" defer></script>
@@ -27,12 +57,11 @@
 <!--navbar-->
 <header class="header" id="header">
     <nav class="nav-container">
-        <a href="index.html" class="nav-logo">SKYLINK</a>
-
+        <a href="index.php" class="nav-logo">SKYLINK</a>
         <div id="nav-links" class="nav-links-container">
             <ul class="nav-links">
                 <li class="nav-li">
-                    <a href="index.html" class="nav-item"><span>Home</span></a>
+                    <a href="index.php" class="nav-item"><span>Home</span></a>
                 </li>
 
                 <li class="nav-li">
@@ -53,10 +82,9 @@
                     class="profile-btn"
                     src="imgs/profile%20btn.png"
                     alt="Profile"
-                    onclick="toggelMenu() "
+                    onclick="toggelMenu()"
             />
         </div>
-
         <div class="sub-menu-wrap" id="subMenu">
             <div class="sub-menu">
                 <div class="user-info">
@@ -75,14 +103,14 @@
                     <p>Bookings</p>
                 </a>
 
-                <div class="login-btn-container">
-                    <button class="login-btn" id="open-login">
-                        <a href="#" class="sub-menu-login">
+                <div class="account-btn-container">
+                    <button class="account-btn">
+                        <a href="users-page.php" class="sub-menu-login">
                             <p>Account</p>
                         </a>
                     </button>
                     <button class="login-btn logout">
-                        <a href="#" class="sub-menu-logout">
+                        <a href="logout.php" class="sub-menu-logout">
                             <p>Logout</p>
                         </a>
                     </button>
@@ -95,16 +123,17 @@
     </nav>
 </header>
 <!--    login popup-->
+
 <div id="login-popup" class="login-popup-container">
     <div class="login-content">
         <h2>Welcome back 👋</h2>
         <i id="popup-close" class="bi bi-x-circle"></i>
-        <form action="#" method="post">
-            <input type="text" placeholder="Enter your email"/>
+        <form action="index.php" method="post">
+            <input type="text" name="loginEmail" placeholder="Enter your email"/>
 
-            <input type="password" placeholder="Enter your password"/>
+            <input type="password" name="loginPassword" placeholder="Enter your password"/>
 
-            <input class="login-submit" type="submit" value="Login"/>
+            <input class="login-submit" name="loginSubmit" type="submit" value="Login"/>
         </form>
 
         <a class="forgot-pass" href="#">
@@ -115,22 +144,78 @@
         </div>
     </div>
 </div>
+
 <!--  register popup-->
+<?php
+if (isset($_POST['submit'])){
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $passwordRepeat = $_POST['repeat_password'];
+    //    password security
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+    $errors = array();
+    if (empty($firstname) || empty($lastname) || empty($email) || empty($password) || empty($passwordRepeat)) {
+        array_push($errors, "All Fields are required");
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        array_push($errors, "Please enter a valid email address");
+    }
+    if (strlen($password) < 6) {
+        array_push($errors, "Password must be at least 6 characters long");
+    }if ($password != $passwordRepeat) {
+        array_push($errors, "Passwords do not match");
+    }
+
+    $sqlDoubleEmail = "SELECT email FROM users WHERE email = '$email'";
+    $resultDoubleEmail = $pdo->query($sqlDoubleEmail);
+    $rowDoubleEmail = $resultDoubleEmail->fetch(PDO::FETCH_ASSOC);
+    if ($rowDoubleEmail > 0){
+        array_push($errors, "Email already exists");
+    }
+
+    if (count($errors) >0) {
+        foreach ($errors as $error) {
+            echo $error . "<br/>";
+        }
+    }
+    else{
+
+// de gebruiker wordt toegevoegd aan de database
+        $sql = "INSERT INTO users (name, lastName, email, password) VALUES (:name, :lastName, :email, :password)";
+        $stmt = $pdo->prepare($sql);
+        if ($stmt) {
+            $stmt->bindParam(":name", $firstname, PDO::PARAM_STR);
+            $stmt->bindParam(":lastName", $lastname, PDO::PARAM_STR);
+            $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+            $stmt->bindParam(":password", $passwordHash, PDO::PARAM_STR);
+            $stmt->execute();
+            echo "New record created successfully";
+        } else {
+            die("something went wrong");
+        }
+
+    }
+}
+?>
+
 <div id="register-popup" class="login-popup-container">
     <div class="login-content">
         <h2>New account</h2>
         <i id="popup-close2" class="bi bi-x-circle"></i>
         <form action="#" method="post">
             <div class="register-info-container">
-                <input type="text" placeholder="First name">
-                <input type="text" placeholder="Last name">
+                <input type="text" name="firstname" placeholder="First name">
+                <input type="text" name="lastname" placeholder="Last name">
             </div>
 
-            <input type="text" placeholder="Enter your email"/>
+            <input type="text" name="email" placeholder="Enter your email"/>
+            <input type="password" name="password" placeholder="Enter your password"/>
+            <input type="password" name="repeat_password" placeholder="Confirm your password"/>
 
-            <input type="password" placeholder="Enter your password"/>
-
-            <input class="login-submit" type="submit" value="Create account"/>
+            <input class="login-submit" name="submit" type="submit" value="Create account"/>
         </form>
 
         <a class="forgot-pass" href="#">
