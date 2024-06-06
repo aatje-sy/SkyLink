@@ -9,6 +9,7 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
+    <link rel="icon" type="image/x-icon" href="imgs/tab-logo.png"/>
     <link rel="stylesheet" href="style.css" />
     <title>Vacation</title>
 </head>
@@ -104,12 +105,35 @@
                 <p>Et Quis quas est architecto voluptates id cumque molestiae. Sed nemo Quis ut quasi ratione qui accusamus galisum rem dolorem error id molestiae repellat et veritatis rerum.</p>
             </div>
         </div>
-        <div class="vacation-booking-gui">
+        <div class="vacation-booking-gui flex">
+            <div class="vacation-gui-txt vacation-price flex">
+                <h3>€129</h3>
+                <span style="color: #AAAAAA">/Night</span>
+            </div>
+            <div class="vacation-gui-txt amount-reviews flex">
+                <img src="imgs/review-star.png" alt="star">
+                <p>4.7</p>
+                <p style="color: #AAAAAA">(111 reviews)</p>
+            </div>
+            <div class="vacation-duration-bar">
 
+            </div>
+            <div class="booking-buttons flex" style="gap: 20px">
+                <button class="save-button">
+                    Save +
+                </button>
+                <button class="booking-button">
+                    Book Now
+                </button>
+            </div>
+
+            <div class="total-bar">
+
+            </div>
         </div>
     </div>
 
-    <div class="flex" style="width: 100%; justify-content: center">
+    <div class="container-am flex" style="width: 100%; justify-content: center">
         <div class="Amenities-container flex">
             <h1>Amenities</h1>
             <div class="Amenities flex" style="color: #AAAAAA">
@@ -167,14 +191,15 @@
                 <i class="bi bi-facebook"></i>
                 <i class="bi bi-twitter-x"></i>
             </div>
-            <div class="footer-containers flex">
-                <h3>Newsletter</h3>
-                <div class="newsletter-input-container flex">
-                    <input class="newsletter-input" type="email" placeholder="Enter your email">
-                    <a href="#" class="newsletter-submit flex">
-                        <i style="color: white" class="bi bi-chevron-right"></i>
-                    </a>
-                </div>
+        </div>
+
+        <div class="footer-containers flex">
+            <h3>Newsletter</h3>
+            <div class="newsletter-input-container flex">
+                <input class="newsletter-input" type="email" placeholder="Enter your email">
+                <a href="#" class="newsletter-submit flex">
+                    <i style="color: white" class="bi bi-chevron-right"></i>
+                </a>
             </div>
         </div>
     </footer>

@@ -683,6 +683,55 @@ input[type="text"], input[type="password"]{
   width: 300px;
   border-radius: 20px;
   border: solid #AAAAAA 1px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.vacation-price{
+  font-size: clamp(20px, 2.2vw, 25px);
+}
+.vacation-gui-txt{
+  width: 85%;
+  justify-content: flex-start;
+
+}
+.amount-reviews{
+  font-size: clamp(12px, 1.1vw, 15px);
+  gap: 10px;
+  align-items: center;
+}
+.vacation-duration-bar{
+  height: 25%;
+  width: 85%;
+  background-color: #E8E8E8;
+  justify-self: center;
+  border-radius: 15px;
+}
+.booking-buttons{
+  width: 85%;
+  height: 20%;
+}
+.save-button{
+  background-color: white;
+  border: 1px solid #AAAAAA;
+  border-radius: 20px;
+  color: black;
+  width: 40%;
+  height: 50%;
+}
+.booking-button{
+  background-color: #225FFE;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  width: 90%;
+  height: 50%;
+}
+.total-bar{
+  height: 10%;
+  width: 85%;
+  background-color: #E8E8E8;
+  border-radius: 10px;
 }
 .hotel-specifications{
   color: #AAAAAA;
@@ -697,6 +746,10 @@ input[type="text"], input[type="password"]{
   gap: 10px;
   font-size: clamp(15px, 2.1vw, 19px);
   flex-wrap: wrap;
+}
+.container-am{
+  width: 100%;
+  justify-content: center;
 }
 .Amenities-container{
   width: 900px;
