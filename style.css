@@ -354,6 +354,13 @@ ul li {
   background-color: transparent;
   border: 1px solid #AAAAAA;
 }
+/*
+  Dit effecteerd andere inputs dat dit styling
+  niet nodig hebben, dus gebruik de class van dit inputs zelf
+  inplaats van de label
+
+  Feedback van: Ahmad
+ */
 input[type="text"], input[type="password"]{
   padding: 10px 20px;
   color: #AAAAAA;
@@ -539,7 +546,6 @@ input[type="text"], input[type="password"]{
 }
 .input-icon {
   object-fit: contain;
-  height: 30px;
   width: 30px;
 }
 .Search-input {
@@ -550,6 +556,7 @@ input[type="text"], input[type="password"]{
   color: black;
 }
 .location-input{
+  padding: none;
   width: 200px;
 }
 .search-txt{
@@ -557,9 +564,6 @@ input[type="text"], input[type="password"]{
   color: #777E90;
   font-size: clamp(18px, 2.4vw, 20px);
   width: 250px;
-}
-.location-txt{
-  margin-left: 30px;
 }
 .location-input::placeholder {
   color: black;

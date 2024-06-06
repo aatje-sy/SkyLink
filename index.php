@@ -193,7 +193,7 @@ if (isset($_POST['submit'])) {
 
         <div class="search-btn-container flex">
             <button class="search-btn">
-                <a href="#">
+                <a href="searchedPage.php">
                     <img class="search-icon" src="imgs/search-icon.png" alt="??">
                 </a>
             </button>
