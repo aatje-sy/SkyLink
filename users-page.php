@@ -16,11 +16,6 @@ if(!isset($_SESSION["loggedUser"])){
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-            rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="imgs/tab-logo.png"/>
     <link rel="stylesheet" href="style.css"/>
     <script src="scripts.js" defer></script>
