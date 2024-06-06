@@ -1,29 +1,26 @@
 <?php
-require_once ('connect.php');
+require_once('connect.php');
 /**
- * @var $pdo;
+ * @var $pdo ;
  */
 
 //inloggen
 session_start();
-
-
-if (isset($_POST["loginSubmit"])){
+if (isset($_POST["loginSubmit"])) {
     $loginEmail = $_POST["loginEmail"];
     $loginPassword = $_POST["loginPassword"];
     $sqlLogin = "SELECT * FROM users WHERE email = '$loginEmail'";
     $resultLogin = $pdo->query($sqlLogin);
     $fetchLogin = $resultLogin->fetch();
-    if ($fetchLogin){
-        if (password_verify($loginPassword, $fetchLogin['password'])){
+    if ($fetchLogin) {
+        if (password_verify($loginPassword, $fetchLogin['password'])) {
             $_SESSION["loggedUser"] = "yes";
             header("location: users-page.php");
-            exit();
 
-        }else{
+        } else {
             echo "Wrong password";
         }
-    }else{
+    } else {
         echo "This email does not exist";
     }
 }
@@ -55,33 +52,33 @@ if (isset($_POST["loginSubmit"])){
 <body>
 
 <!--navbar-->
-<?php include_once ("Nav.php")?>
+<?php include_once("Nav.php") ?>
 <!--    login popup-->
+<?php if (!isset($_SESSION["loggedUser"])) { ?>
+    <div id="login-popup" class="login-popup-container">
+        <div class="login-content">
+            <h2>Welcome back 👋</h2>
+            <i id="popup-close" class="bi bi-x-circle"></i>
+            <form action="index.php" method="post">
+                <input type="text" name="loginEmail" placeholder="Enter your email"/>
 
-<div id="login-popup" class="login-popup-container">
-    <div class="login-content">
-        <h2>Welcome back 👋</h2>
-        <i id="popup-close" class="bi bi-x-circle"></i>
-        <form action="index.php" method="post">
-            <input type="text" name="loginEmail" placeholder="Enter your email"/>
+                <input type="password" name="loginPassword" placeholder="Enter your password"/>
 
-            <input type="password" name="loginPassword" placeholder="Enter your password"/>
+                <input class="login-submit" name="loginSubmit" type="submit" value="Login"/>
+            </form>
 
-            <input class="login-submit" name="loginSubmit" type="submit" value="Login"/>
-        </form>
-
-        <a class="forgot-pass" href="#">
-            <p>Forgot password?</p>
-        </a>
-        <div class="register-container">
-            <p>Not a Member? <a id="register-link" class="register-link" href="#">Register now</a></p>
+            <a class="forgot-pass" href="#">
+                <p>Forgot password?</p>
+            </a>
+            <div class="register-container">
+                <p>Not a Member? <a id="register-link" class="register-link" href="#">Register now</a></p>
+            </div>
         </div>
     </div>
-</div>
-
+<?php } ?>
 <!--  register popup-->
 <?php
-if (isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
@@ -99,23 +96,23 @@ if (isset($_POST['submit'])){
     }
     if (strlen($password) < 6) {
         array_push($errors, "Password must be at least 6 characters long");
-    }if ($password != $passwordRepeat) {
+    }
+    if ($password != $passwordRepeat) {
         array_push($errors, "Passwords do not match");
     }
 
     $sqlDoubleEmail = "SELECT email FROM users WHERE email = '$email'";
     $resultDoubleEmail = $pdo->query($sqlDoubleEmail);
     $rowDoubleEmail = $resultDoubleEmail->fetch(PDO::FETCH_ASSOC);
-    if ($rowDoubleEmail > 0){
+    if ($rowDoubleEmail > 0) {
         array_push($errors, "Email already exists");
     }
 
-    if (count($errors) >0) {
+    if (count($errors) > 0) {
         foreach ($errors as $error) {
             echo $error . "<br/>";
         }
-    }
-    else{
+    } else {
 
 // de gebruiker wordt toegevoegd aan de database
         $sql = "INSERT INTO users (name, lastName, email, password) VALUES (:name, :lastName, :email, :password)";
@@ -134,6 +131,7 @@ if (isset($_POST['submit'])){
     }
 }
 ?>
+
 
 <div id="register-popup" class="login-popup-container">
     <div class="login-content">
@@ -162,7 +160,6 @@ if (isset($_POST['submit'])){
 </div>
 
 <!--index page start-->
-
 <div class="searched-container flex">
     <img class="searched-img" src="imgs/index-page-bg.jpg" alt="Error">
     <div class="search-panel-titleTXT">

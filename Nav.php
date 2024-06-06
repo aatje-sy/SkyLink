@@ -52,6 +52,7 @@
                     onclick="toggelMenu()"
             />
         </div>
+        <?php if (isset($_SESSION["loggedUser"])){ ?>
         <div class="sub-menu-wrap" id="subMenu">
             <div class="sub-menu">
                 <div class="user-info">
@@ -84,6 +85,7 @@
                 </div>
             </div>
         </div>
+        <?php }?>
         <div id="nav-toggle" class="nav-toggel">
             <i class="bi bi-list"></i>
         </div>
