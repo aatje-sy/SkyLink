@@ -55,73 +55,7 @@ if (isset($_POST["loginSubmit"])){
 <body>
 
 <!--navbar-->
-<header class="header" id="header">
-    <nav class="nav-container">
-        <a href="index.php" class="nav-logo">SKYLINK</a>
-        <div id="nav-links" class="nav-links-container">
-            <ul class="nav-links">
-                <li class="nav-li">
-                    <a href="index.php" class="nav-item"><span>Home</span></a>
-                </li>
-
-                <li class="nav-li">
-                    <a href="#" class="nav-item"><span>About</span></a>
-                </li>
-                <li class="nav-li">
-                    <a href="#" class="nav-item"><span>Contact</span></a>
-                </li>
-            </ul>
-
-            <div id="nav-close" class="nav-close">
-                <i class="bi bi-x-lg"></i>
-            </div>
-        </div>
-
-        <div class="profile-btn-container">
-            <img
-                    class="profile-btn"
-                    src="imgs/profile%20btn.png"
-                    alt="Profile"
-                    onclick="toggelMenu()"
-            />
-        </div>
-        <div class="sub-menu-wrap" id="subMenu">
-            <div class="sub-menu">
-                <div class="user-info">
-                    <img src="imgs/profile btn.png" alt="profile photo"/>
-                    <h3>Customer name</h3>
-                </div>
-                <hr/>
-
-                <a href="#" class="sub-menu-link">
-                    <i class="bi bi-chat-right-heart"></i>
-                    <p>Wish List</p>
-                </a>
-
-                <a href="#" class="sub-menu-link">
-                    <i class="bi bi-house-door"></i>
-                    <p>Bookings</p>
-                </a>
-
-                <div class="account-btn-container">
-                    <button class="account-btn">
-                        <a href="users-page.php" class="sub-menu-login">
-                            <p>Account</p>
-                        </a>
-                    </button>
-                    <button class="login-btn logout">
-                        <a href="logout.php" class="sub-menu-logout">
-                            <p>Logout</p>
-                        </a>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="nav-toggle" class="nav-toggel">
-            <i class="bi bi-list"></i>
-        </div>
-    </nav>
-</header>
+<?php include_once ("Nav.php")?>
 <!--    login popup-->
 
 <div id="login-popup" class="login-popup-container">
