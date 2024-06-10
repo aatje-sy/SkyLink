@@ -9,7 +9,11 @@ CREATE TABLE flights(
 );
 
 
-INSERT INTO flights (flight_name, discription, price) VALUES ('eerste vlucht', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', '$299,99');
+INSERT INTO flights (flight_name, discription, price) VALUES ('Italian Landscape', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', '$299,99');
+INSERT INTO flights (flight_name, discription, price) VALUES ('Thailand Phi Phi Islands', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', '$399,99');
+INSERT INTO flights (flight_name, discription, price) VALUES ('Greece Santorini Island', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', '$599,99');
+INSERT INTO flights (flight_name, discription, price) VALUES ('Norway Lofoten Islands', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', '$599,99');
+INSERT INTO flights (flight_name, discription, price) VALUES ('Japanese Hakone Gate', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', '$799,99');
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE `users` (

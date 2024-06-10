@@ -1,3 +1,12 @@
+<?php
+    require_once('connect.php');
+
+/**
+ * @var $pdo ;
+ */
+
+    ?>
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -21,11 +30,11 @@
 <?php
 require_once("connect.php");
 /**
- * @var $connection;
+ * @var $pdo ;
  */
     if (isset($_GET['locationSearch'])){
     $zoekQuery = "SELECT FROM SkyLink WHERE flight_name LIKE :zoekinput";
-    $stmt = $connection ->prepare($zoekQuery);
+    $stmt = $pdo ->prepare($zoekQuery);
     $var = "%" . $_GET['search'] . "%";
     $stmt -> bindParam( ":zoekinput" , $var);
     if (isset($_GET['submit-searchbar'])){
@@ -83,84 +92,36 @@ require_once("connect.php");
     <div class="title-searchpage">
         <h1 class="">Places to stay</h1>
     </div>
-    <?php
 
+    <div class="vacation-search-result flex">
+    <?php
     /**
-     * @var $connection ;
+     * @var $pdo ;
      */
 
-    $stmt = $connection->query("SELECT * FROM SkyLink");
-    $stmt = "SELECT * FROM SkyLink WHERE flight_name == flight_name";
+    $sql = "SELECT flight_name, price FROM flights";
+    $resultSearchPage = $pdo->query($sql);
 
-    while ($searchedPage = $stmt->fetch()) {
+    while ($fetchCard = $resultSearchPage -> fetch()) {
         echo '
-    <div class="vacation-search-result flex">
         <div class="vacations">
             <a href="vacation-page.php" style="text-decoration: none">
                 <img class="vacation-img" src="imgs/italian-land.jpg" alt="">
                 <div class="vacation-base-info flex">
                     <div class="vacation-name-txt flex">
-                        <h3 style="font-weight: 600;">' .$searchedPage["flight_name"] . '</h3>
+                        <h3 style="font-weight: 600;">' .$fetchCard["flight_name"] . '</h3>
                         <p style="text-align: center; color: #AAAAAA">
                             <img src="imgs/coffee-icon.png" alt=""> Breakfast included
                         </p>
                     </div>
-                    <div class="price-vacation" style="color: #57C27D">€' . $searchedPage["price"] . '</div>
+                    <div class="price-vacation" style="color: #57C27D">' . $fetchCard["price"] . '</div>
                 </div>
             </a>
-        </div>
-    </div>';
+        </div>';
     }
     ?>
-
-
-<div class="vacations-container flex" >
-        <div class="title-searchpage">
-            <h1 class="">Places to stay</h1>
-        </div>
-
-        <div class="vacation-search-result flex">
-            <div class="vacations">
-                <a href="vacation-page.php" style="text-decoration: none">
-                    <img class="vacation-img" src="imgs/italian-land.jpg" alt="">
-                    <div class="vacation-base-info flex">
-                        <div class="vacation-name-txt flex">
-                            <h3 style="font-weight: 600;">Italian Landscape</h3>
-                            <p style="text-align: center; color: #AAAAAA"><img src="imgs/coffee-icon.png" alt="">  Breakfast included</p>
-                        </div>
-                        <div class="price-vacation" style="color: #57C27D">€129</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="vacations">
-                <a href="vacation-page.php" style="text-decoration: none">
-                    <img class="vacation-img" src="imgs/italian-land.jpg" alt="">
-                    <div class="vacation-base-info flex">
-                        <div class="vacation-name-txt flex">
-                            <h3 style="font-weight: 600;">Italian Landscape</h3>
-                            <p style="text-align: center; color: #AAAAAA"><img src="imgs/coffee-icon.png" alt="">  Breakfast included</p>
-                        </div>
-                        <div class="price-vacation" style="color: #57C27D">€129</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="vacations">
-                <a href="vacation-page.php" style="text-decoration: none">
-                    <img class="vacation-img" src="imgs/italian-land.jpg" alt="">
-                    <div class="vacation-base-info flex">
-                        <div class="vacation-name-txt flex">
-                            <h3 style="font-weight: 600;">Italian Landscape</h3>
-                            <p style="text-align: center; color: #AAAAAA"><img src="imgs/coffee-icon.png" alt="">  Breakfast included</p>
-                        </div>
-                        <div class="price-vacation" style="color: #57C27D">€129</div>
-                    </div>
-                </a>
-            </div>
-
-        </div>
     </div>
+
 
     <?php include_once ("footer.php")?>
     <script src="scripts.js"></script>
