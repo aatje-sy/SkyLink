@@ -1,3 +1,12 @@
+<?php
+require_once('connect.php');
+
+/**
+ * @var $pdo ;
+ */
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -76,11 +85,26 @@
                 <img class="sideImg" src="imgs/hotel-img-vacation1.png" alt="sideImg">
         </aside>
     </div>
-    
+
+    <?php
+    /**
+     * @var $pdo ;
+     */
+
+    $sql = "SELECT * FROM flights WHERE ID = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":id", $_GET['id']);
+    $stmt->execute();
+    $vacationResult = $stmt->fetch();
+
+    if ($vacationResult){
+
+        echo'
+        
     <div class="vacation-discription-container flex">
         <div class="vacation-discription">
             <div class="vacation-Name">
-                <h1 style="color: black">Manarola Italy</h1>
+                <h1 style="color: black">'. $vacationResult['flight_name'] .'</h1>
             </div>
             <div>
                 <hr style="margin-bottom: 10px; margin-top: 10px">
@@ -100,14 +124,12 @@
                 </div>
             </div>
             <div class="vacation-discription">
-                <p>Lorem ipsum dolor sit amet. Qui dolorem dolor vel cupiditate ratione qui omnis assumenda. Qui magnam possimus eum quisquam voluptatem et internos deleniti ab adipisci minus est odio omnis non iusto cupiditate. Id praesentium minus est animi voluptatum est voluptas repudiandae sed nisi eius At maxime tenetur et alias eveniet. Ut eius galisum et neque iusto ut iusto harum ut praesentium porro sit itaque galisum aut corrupti cumque sit consequatur blanditiis.</p>
-                <p>Et soluta quia rem magnam veniam ut magnam minus non quisquam architecto. Ea quae explicabo ut nobis repellat et molestias enim quo dolorem quae cum cumque fugiat sed odio velit? </p>
-                <p>Et Quis quas est architecto voluptates id cumque molestiae. Sed nemo Quis ut quasi ratione qui accusamus galisum rem dolorem error id molestiae repellat et veritatis rerum.</p>
+                <p>'. $vacationResult['discription'] .'</p>
             </div>
         </div>
         <div class="vacation-booking-gui flex">
             <div class="vacation-gui-txt vacation-price flex">
-                <h3>€129</h3>
+                <h3>'. $vacationResult['price'] .'</h3>
                 <span style="color: #AAAAAA">/Night</span>
             </div>
             <div class="vacation-gui-txt amount-reviews flex">
@@ -132,6 +154,9 @@
             </div>
         </div>
     </div>
+           ';
+        }
+    ?>
 
     <div class="container-am flex" style="width: 100%; justify-content: center">
         <div class="Amenities-container flex">

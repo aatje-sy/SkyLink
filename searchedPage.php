@@ -99,14 +99,16 @@ require_once("connect.php");
      * @var $pdo ;
      */
 
-    $sql = "SELECT flight_name, price FROM flights";
+    $sql = "SELECT flight_name, price, id, imgs FROM flights";
     $resultSearchPage = $pdo->query($sql);
+
+
 
     while ($fetchCard = $resultSearchPage -> fetch()) {
         echo '
         <div class="vacations">
-            <a href="vacation-page.php" style="text-decoration: none">
-                <img class="vacation-img" src="imgs/italian-land.jpg" alt="">
+            <a href="vacation-page.php?id='. $fetchCard["id"] . '"  style="text-decoration: none">
+                <img class="vacation-img" src="imgs/"'. $fetchCard["imgs"] .' alt="">
                 <div class="vacation-base-info flex">
                     <div class="vacation-name-txt flex">
                         <h3 style="font-weight: 600;">' .$fetchCard["flight_name"] . '</h3>
@@ -114,7 +116,7 @@ require_once("connect.php");
                             <img src="imgs/coffee-icon.png" alt=""> Breakfast included
                         </p>
                     </div>
-                    <div class="price-vacation" style="color: #57C27D">' . $fetchCard["price"] . '</div>
+                    <div class="price-vacation" style="color: #57C27D"> €' . $fetchCard["price"] . '</div>
                 </div>
             </a>
         </div>';
