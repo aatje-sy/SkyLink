@@ -45,7 +45,7 @@
         </div>
 
         <div class="profile-btn-container">
-            <img
+            <img id="profile-btn"
                     class="profile-btn"
                     src="imgs/profile%20btn.png"
                     alt="Profile"
@@ -70,10 +70,9 @@
                     <i class="bi bi-house-door"></i>
                     <p>Bookings</p>
                 </a>
-
                 <div class="account-btn-container">
                     <button class="account-btn">
-                        <a href="users-page.php" class="sub-menu-login">
+                        <a href="user.php" class="sub-menu-login">
                             <p>Account</p>
                         </a>
                     </button>
