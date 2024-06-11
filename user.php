@@ -1,7 +1,8 @@
 <?php
+
 session_start();
-if(!isset($_SESSION["loggedUser"])){
-    header("location: index.php");
+if (!isset($_SESSION ["loggedUser"])) {
+    header ("location: index.php");
 }
 ?>
 <!--users pagina-->
@@ -22,9 +23,8 @@ if(!isset($_SESSION["loggedUser"])){
     <title>SkyLink</title>
 </head>
 <body>
-
-<!--navbar-->
-<?php include_once ("Nav.php")?>
-
+<?php
+include_once "navbar.php";
+?>
 <h1>this is the users dashboard</h1>
 </body>

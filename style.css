@@ -354,6 +354,14 @@ ul li {
   background-color: transparent;
   border: 1px solid #AAAAAA;
 }
+.login-content form select{
+  padding: 10px 20px;
+  height: 50px;
+  border-radius: 60px;
+  background-color: transparent;
+  border: 1px solid #AAAAAA;
+  color: #777E90;
+}
 /*
   Dit effecteerd andere inputs dat dit styling
   niet nodig hebben, dus gebruik de class van dit inputs zelf

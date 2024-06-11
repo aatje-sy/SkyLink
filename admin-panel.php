@@ -1,85 +1,34 @@
+<?php
+session_start();
+if (!isset($_SESSION["loggedUser"])) {
+    header("location: index.php");
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <meta charset="UTF-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/x-icon" href="imgs/tab-logo.png"/>
+    <link rel="stylesheet" href="style.css"/>
+    <title>SkyLink</title>
 </head>
 <body>
-
-<header class="header" id="header">
-    <nav class="nav-container">
-        <a href="index.php" class="nav-logo">SKYLINK</a>
-
-        <div id="nav-links" class="nav-links-container">
-            <ul class="nav-links">
-                <li class="nav-li">
-                    <a href="index.php" class="nav-item"><span>Home</span></a>
-                </li>
-
-                <li class="nav-li">
-                    <a href="#" class="nav-item"><span>About</span></a>
-                </li>
-                <li class="nav-li">
-                    <a href="#" class="nav-item"><span>Contact</span></a>
-                </li>
-            </ul>
-
-            <div id="nav-close" class="nav-close">
-                <i class="bi bi-x-lg"></i>
-            </div>
-        </div>
-
-        <div class="profile-btn-container">
-            <img
-                    class="profile-btn"
-                    src="imgs/profile%20btn.png"
-                    alt="Profile"
-                    onclick="toggelMenu() "
-            />
-        </div>
-
-        <div class="sub-menu-wrap" id="subMenu">
-            <div class="sub-menu">
-                <div class="user-info">
-                    <img src="imgs/profile btn.png" alt="profile photo"/>
-                    <h3>Customer name</h3>
-                </div>
-                <hr/>
-
-                <a href="#" class="sub-menu-link">
-                    <i class="bi bi-chat-right-heart"></i>
-                    <p>Wish List</p>
-                </a>
-
-                <a href="#" class="sub-menu-link">
-                    <i class="bi bi-house-door"></i>
-                    <p>Bookings</p>
-                </a>
-
-                <div class="login-btn-container">
-                    <button class="login-btn" id="open-login">
-                        <a href="#" class="sub-menu-login">
-                            <p>Account</p>
-                        </a>
-                    </button>
-                    <button class="login-btn logout">
-                        <a href="#" class="sub-menu-logout">
-                            <p>Logout</p>
-                        </a>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="nav-toggle" class="nav-toggel">
-            <i class="bi bi-list"></i>
-        </div>
-    </nav>
-</header>
-<div style="height: 150px"></div>
+<?php
+include_once('navbar.php');
+?>
+<div style="height: 170px"></div>
 
 <div class="adminPanel-Container flex">
 
@@ -96,13 +45,31 @@
         <section class="admin-page-Head">
             <div class="flex admin-little-header">
                 <h2>Bookings List</h2>
-                <div class="add-Travel-btn">
+                <div class="add-Travel-btn" id="add-travel">
                     <a href="#" style="color: white; text-decoration: none">ADD NEW TRAVEL</a>
                 </div>
 
             </div>
             <hr>
         </section>
+
+        <div id="add-popup" class="login-popup-container">
+            <div class="login-content">
+                <h2>Add Travel</h2>
+                <i id="popup-close3" class="bi bi-x-circle"></i>
+                <form action="index.php" method="post">
+                    <input type="text" name="add-name" placeholder="Enter a name"/>
+
+                    <input type="text" name="add_discription" placeholder="Enter a discription"/>
+                    <input type="text" name="add-price" placeholder="Enter a price"/>
+                    <select name="travel-status">
+                        <option value="Out of stock">Out of stock</option>
+                        <option value="available ">Available</option>
+                    </select>
+                    <input class="login-submit" name="loginSubmit" type="submit" value="Add"/>
+                </form>
+            </div>
+        </div>
 
         <table>
             <tr class="table-headers">
