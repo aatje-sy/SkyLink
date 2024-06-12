@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<?php include_once("Nav.php") ?>
+<?php include_once("navbar.php") ?>
 
 <?php
 require_once("connect.php");
