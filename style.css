@@ -421,6 +421,123 @@ input[type="text"], input[type="password"]{
 }
 
 
+
+/*add trip popup*/
+.add-popup-container{
+  position: fixed;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+.add-trip-content{
+  background: white;
+  box-shadow: 0px 4px 50px 3px rgba(0,0,0,0.1);
+  width: 850px;
+  height: 500px;
+  padding: 2em;
+  border-radius: 20px;
+  position: relative;
+}
+.add-trip-content h2{
+  font-weight: 600;
+  font-size: clamp(1.5em, 2.2vw, 2.5em);
+}
+.add-trip-content i{
+  font-size: 26px;
+  position: relative;
+  cursor: pointer;
+  left: 48rem;
+  bottom: 2.5rem;
+}
+.add-trip-content form{
+
+}
+.add-trip-info-container{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.text-input{
+  width: 100%;
+  border-radius: 0.475rem;
+  padding: .775rem 1rem;
+  background-color: transparent;
+  border: 1px solid #AAAAAA;
+}
+.price-and-status-container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5em;
+}
+.price-text{
+  width: 370px;
+}
+.trip-status{
+  width: 370px;
+  height: 40px;
+}
+
+.submit-upload-container{
+  display: flex;
+  justify-content: space-between;
+}
+.add-trip-submit{
+  width: 150px;
+  background-color: #3a71fe;
+  border-radius: 0.475rem;
+  color: white;
+  border: none;
+  margin-top: 1rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  top: 9rem;
+  left: 40rem;
+}
+.upload-input{
+  margin-top: 16px;
+}
+@media screen and (max-width: 950px) {
+  .add-trip-content{
+    width: 600px;
+  }
+  .add-trip-submit{
+    top: 6rem;
+    left: 24rem;
+  }
+  .add-trip-content i{
+    left: 32rem;
+  }
+}
+@media screen and (max-width: 670px) {
+  .add-trip-content{
+    width: 400px;
+  }
+  .add-trip-submit{
+    top: 5.5rem;
+    left: 12rem;
+  }
+  .add-trip-content i{
+    left: 20rem;
+  }
+}
+@media screen and (max-width: 440px) {
+  .add-trip-content{
+    width: 350px;
+  }
+  .add-trip-submit{
+    top: 4.5rem;
+    left: 9rem;
+  }
+  .add-trip-content i{
+    left: 17rem;
+  }
+}
 /*live-anywhere-container*/
 .live-anywhere-container{
   display: flex;
@@ -791,12 +908,13 @@ input[type="text"], input[type="password"]{
 }
 .adminPanel-Container{
   height: 600px;
-  width: 100%;
+  width: 95%;
   gap: 20px;
 }
 .adminpanel-navbar{
   height: 400px;
   width: 220px;
+  padding: 2em;
   box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.57);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -817,7 +935,7 @@ input[type="text"], input[type="password"]{
 }
 .admin-page-Head{
   height: 100px;
-  width: 98%;;
+  width: 100%;;
 }
 .admin-little-header{
   justify-content: space-between;

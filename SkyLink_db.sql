@@ -22,5 +22,5 @@ CREATE TABLE `users` (
                          `lastName` varchar(255) NOT NULL,
                          `email` varchar(255) NOT NULL,
                          `password` varchar(255) NOT NULL,
-                         `user-type` varchar(255) NOT NULL DEFAULT 'user'
-)
+                         `admin` tinyint(1) NOT NULL DEFAULT '0'
+                         );
