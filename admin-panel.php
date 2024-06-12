@@ -1,4 +1,8 @@
 <?php
+require_once('connect.php');
+/**
+ * @var $pdo ;
+ */
 session_start();
 if (!isset($_SESSION["loggedUser"])) {
     header("location: index.php");
@@ -87,13 +91,17 @@ include_once('navbar.php');
                 <th>Price</th>
                 <th></th>
             </tr>
-
+<!--            crud read-->
+            <?php
+            $sqlRead = "SELECT * FROM flights";
+            $stmtRead = $pdo->query($sqlRead);
+            while ($row = $stmtRead->fetch()) { ?>
             <tr class="vacation-bar">
                 <td class="column-sections">
                     <img class="admin-vacation-img" src="imgs/italian-land.jpg" alt="img">
                 </td>
                 <td class="column-sections">
-                    <h3>Manarola Italy</h3>
+                    <h3><?php echo $row['flight_name']?></h3>
                 </td>
                 <td class="column-sections">
                     <p>342</p>
@@ -105,7 +113,9 @@ include_once('navbar.php');
                     <p>5</p>
                 </td>
                 <td class="column-sections">
-                    <p>$99,99</p>
+                    <p> <?php
+                        echo $row['price'];
+                        ?> </p>
                 </td>
                 <td class="column-sections flex" style="justify-content: flex-end">
                     <div class="admin-button">
@@ -121,204 +131,7 @@ include_once('navbar.php');
                     </div>
                 </td>
             </tr>
-            <tr class="vacation-bar">
-                <td class="column-sections">
-                    <img class="admin-vacation-img" src="imgs/italian-land.jpg" alt="img">
-                </td>
-                <td class="column-sections">
-                    <h3>Manarola Italy</h3>
-                </td>
-                <td class="column-sections">
-                    <p>342</p>
-                </td>
-                <td class="column-sections">
-                    <p>2</p>
-                </td>
-                <td class="column-sections">
-                    <p>5</p>
-                </td>
-                <td class="column-sections">
-                    <p>$99,99</p>
-                </td>
-                <td class="column-sections flex" style="justify-content: flex-end">
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/edit-btn.png" alt="">
-                        </a>
-                    </div>
-
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/delete-btn.png" alt="">
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="vacation-bar">
-                <td class="column-sections">
-                    <img class="admin-vacation-img" src="imgs/italian-land.jpg" alt="img">
-                </td>
-                <td class="column-sections">
-                    <h3>Manarola Italy</h3>
-                </td>
-                <td class="column-sections">
-                    <p>342</p>
-                </td>
-                <td class="column-sections">
-                    <p>2</p>
-                </td>
-                <td class="column-sections">
-                    <p>5</p>
-                </td>
-                <td class="column-sections">
-                    <p>$99,99</p>
-                </td>
-                <td class="column-sections flex" style="justify-content: flex-end">
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/edit-btn.png" alt="">
-                        </a>
-                    </div>
-
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/delete-btn.png" alt="">
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="vacation-bar">
-                <td class="column-sections">
-                    <img class="admin-vacation-img" src="imgs/italian-land.jpg" alt="img">
-                </td>
-                <td class="column-sections">
-                    <h3>Manarola Italy</h3>
-                </td>
-                <td class="column-sections">
-                    <p>342</p>
-                </td>
-                <td class="column-sections">
-                    <p>2</p>
-                </td>
-                <td class="column-sections">
-                    <p>5</p>
-                </td>
-                <td class="column-sections">
-                    <p>$99,99</p>
-                </td>
-                <td class="column-sections flex" style="justify-content: flex-end">
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/edit-btn.png" alt="">
-                        </a>
-                    </div>
-
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/delete-btn.png" alt="">
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="vacation-bar">
-                <td class="column-sections">
-                    <img class="admin-vacation-img" src="imgs/italian-land.jpg" alt="img">
-                </td>
-                <td class="column-sections">
-                    <h3>Manarola Italy</h3>
-                </td>
-                <td class="column-sections">
-                    <p>342</p>
-                </td>
-                <td class="column-sections">
-                    <p>2</p>
-                </td>
-                <td class="column-sections">
-                    <p>5</p>
-                </td>
-                <td class="column-sections">
-                    <p>$99,99</p>
-                </td>
-                <td class="column-sections flex" style="justify-content: flex-end">
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/edit-btn.png" alt="">
-                        </a>
-                    </div>
-
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/delete-btn.png" alt="">
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="vacation-bar">
-                <td class="column-sections">
-                    <img class="admin-vacation-img" src="imgs/italian-land.jpg" alt="img">
-                </td>
-                <td class="column-sections">
-                    <h3>Manarola Italy</h3>
-                </td>
-                <td class="column-sections">
-                    <p>342</p>
-                </td>
-                <td class="column-sections">
-                    <p>2</p>
-                </td>
-                <td class="column-sections">
-                    <p>5</p>
-                </td>
-                <td class="column-sections">
-                    <p>$99,99</p>
-                </td>
-                <td class="column-sections flex" style="justify-content: flex-end">
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/edit-btn.png" alt="">
-                        </a>
-                    </div>
-
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/delete-btn.png" alt="">
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr class="vacation-bar">
-                <td class="column-sections">
-                    <img class="admin-vacation-img" src="imgs/italian-land.jpg" alt="img">
-                </td>
-                <td class="column-sections">
-                    <h3>Manarola Italy</h3>
-                </td>
-                <td class="column-sections">
-                    <p>342</p>
-                </td>
-                <td class="column-sections">
-                    <p>2</p>
-                </td>
-                <td class="column-sections">
-                    <p>5</p>
-                </td>
-                <td class="column-sections">
-                    <p>$99,99</p>
-                </td>
-                <td class="column-sections flex" style="justify-content: flex-end">
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/edit-btn.png" alt="">
-                        </a>
-                    </div>
-
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/delete-btn.png" alt="">
-                        </a>
-                    </div>
-                </td>
-            </tr>
+            <?php } //*--->while loop end<-----*//?>
         </table>
     </div>
 </div>
