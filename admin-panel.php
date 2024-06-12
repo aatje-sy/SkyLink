@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION["loggedUser"])) {
     header("location: index.php");
 }
+include_once ("crud.php")
 ?>
 <!doctype html>
 <html lang="en">
@@ -53,20 +54,26 @@ include_once('navbar.php');
             <hr>
         </section>
 
-        <div id="add-popup" class="login-popup-container">
-            <div class="login-content">
+<!--     add trip popup-->
+        <div id="add-popup" class="add-popup-container">
+            <div class="add-trip-content">
                 <h2>Add Travel</h2>
                 <i id="popup-close3" class="bi bi-x-circle"></i>
-                <form action="index.php" method="post">
-                    <input type="text" name="add-name" placeholder="Enter a name"/>
-
-                    <input type="text" name="add_discription" placeholder="Enter a discription"/>
-                    <input type="text" name="add-price" placeholder="Enter a price"/>
-                    <select name="travel-status">
-                        <option value="Out of stock">Out of stock</option>
-                        <option value="available ">Available</option>
-                    </select>
-                    <input class="login-submit" name="loginSubmit" type="submit" value="Add"/>
+                <form action="admin-panel.php" method="post">
+                    <div class="add-trip-info-container">
+                        <input class="text-input" type="text" name="add-name" placeholder="Enter a name"/>
+                        <input class="text-input" type="text" name="add-info" placeholder="Enter a discription"/>
+                        <div class="price-and-status-container">
+                            <input class="text-input price-text" type="text" name="add-price" placeholder="Enter a price"/>
+                            <select class="text-input trip-status" name="travel-status">
+                                <option value="Out of stock">Out of stock</option>
+                                <option value="available ">Available</option>
+                            </select>
+                        </div>
+                    </div>
+<!--                    <input class="upload-input" type="file" data-allow-reorder="true"-->
+<!--                           data-max-file-size="3MB" multiple data-max-file="3">-->
+                    <input class="add-trip-submit" name="addSubmit" type="submit" value="Add"/>
                 </form>
             </div>
         </div>
