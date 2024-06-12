@@ -105,14 +105,15 @@ require_once("connect.php");
 
 
     while ($fetchCard = $resultSearchPage -> fetch()) {
+
         echo '
         <div class="vacations">
             <a href="vacation-page.php?id='. $fetchCard["id"] . '"  style="text-decoration: none">
-                <img class="vacation-img" src="imgs/"'. $fetchCard["imgs"] .' alt="">
+                <img class="vacation-img" src="imgs/'. $fetchCard["imgs"] .'" alt="">
                 <div class="vacation-base-info flex">
                     <div class="vacation-name-txt flex">
                         <h3 style="font-weight: 600;">' .$fetchCard["flight_name"] . '</h3>
-                        <p style="text-align: center; color: #AAAAAA">
+                        <p style="color: #AAAAAA">
                             <img src="imgs/coffee-icon.png" alt=""> Breakfast included
                         </p>
                     </div>
