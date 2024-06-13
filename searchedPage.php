@@ -99,32 +99,33 @@ require_once("connect.php");
      * @var $pdo ;
      */
 
-    $sql = "SELECT flight_name, price, id, imgs FROM flights";
-    $resultSearchPage = $pdo->query($sql);
+    $sql = "SELECT id, flight_name, price, main_img FROM flights";
+    $stmt = $pdo->prepare($sql);
+    $execute = $stmt->execute();
+    $resultSearchPage = $stmt->fetchAll();
 
 
-
-    while ($fetchCard = $resultSearchPage -> fetch()) {
+    foreach ($resultSearchPage as $key => $value)
 
         echo '
         <div class="vacations">
-            <a href="vacation-page.php?id='. $fetchCard["id"] . '"  style="text-decoration: none">
-                <img class="vacation-img" src="imgs/'. $fetchCard["imgs"] .'" alt="">
+            <a href="vacation-page.php?id='. $value["id"] . '"  style="text-decoration: none">
+                <img class="vacation-img" src="imgs/' . $value["main_img"] . '" alt="">
                 <div class="vacation-base-info flex">
                     <div class="vacation-name-txt flex">
-                        <h3 style="font-weight: 600;">' .$fetchCard["flight_name"] . '</h3>
+                        <h3 style="font-weight: 600;">'. $value["flight_name"] .'</h3>
                         <p style="color: #AAAAAA">
                             <img src="imgs/coffee-icon.png" alt=""> Breakfast included
                         </p>
                     </div>
-                    <div class="price-vacation" style="color: #57C27D"> €' . $fetchCard["price"] . '</div>
+                    <div class="price-vacation" style="color: #57C27D"> €' . $value["price"] . '</div>
                 </div>
             </a>
-        </div>';
-    }
-    ?>
+        </div>
+        
+      ';
+?>
     </div>
-
 
     <?php include_once ("footer.php")?>
     <script src="scripts.js"></script>
