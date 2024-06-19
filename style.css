@@ -919,7 +919,7 @@ input[type="text"], input[type="password"]{
   gap: 20px;
 }
 .review-bar{
-  width: 8;
+  width: 80%;
 }
 .review-add-btn{
   height: 50px;

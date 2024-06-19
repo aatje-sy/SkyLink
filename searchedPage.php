@@ -25,7 +25,10 @@
 </head>
 <body>
 
-<?php include_once("navbar.php") ?>
+<?php
+    include_once("navbar.php");
+    include_once ("logIn-Popups.php");
+?>
 
 
 <?php

@@ -25,44 +25,7 @@ $flight_id = $_GET['id'];
     <title>Vacation</title>
 </head>
 <body>
-    <header class="header" id="header">
-    <nav class="nav-container">
-        <a href="index.php" class="nav-logo">SKYLINK</a>
-
-        <div id="nav-links" class="nav-links-container">
-            <ul class="nav-links">
-                <li class="nav-li">
-                    <a href="index.php" class="nav-item"><span>Home</span></a>
-                </li>
-
-                <li class="nav-li">
-                    <a href="#" class="nav-item"><span>About</span></a>
-                </li>
-                <li class="nav-li">
-                    <a href="#" class="nav-item"><span>Contact</span></a>
-                </li>
-            </ul>
-
-            <div id="nav-close" class="nav-close">
-                <i class="bi bi-x-lg"></i>
-            </div>
-        </div>
-
-        <div class="profile-btn-container">
-            <button class="profile-btn">
-                <img
-                        class="profile-btn"
-                        src="imgs/profile%20btn.png"
-                        alt="Profile"
-                />
-            </button>
-
-            <div id="nav-toggle" class="nav-toggel">
-                <i class="bi bi-list"></i>
-            </div>
-        </div>
-    </nav>
-</header>
+<?php include_once("navbar.php") ?>
 
     <div class="vacation-3icons flex">
         <div class="vacation-icons flex share-button">
@@ -238,10 +201,8 @@ $flight_id = $_GET['id'];
 
         <div class="reviews-container flex">
             <h1>Add Review</h1>
-            <div>
                 <input type="text" class="review-bar" placeholder="Share your thoughts">
                 <a href="#" class="review-add-btn"></a>
-            </div>
             <h3>Comments:</h3>
             <div class="the-review">
                 <div class="review-texts-bar">
