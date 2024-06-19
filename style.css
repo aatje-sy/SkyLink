@@ -830,8 +830,15 @@ input[type="text"], input[type="password"]{
   height: 25%;
   width: 85%;
   background-color: #E8E8E8;
-  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
   border-radius: 15px;
+}
+.flight-period{
+  border: none;
+  outline: none;
+  background-color: #E8E8E8;
 }
 .booking-buttons{
   width: 85%;
@@ -876,9 +883,10 @@ input[type="text"], input[type="password"]{
 .container-am{
   width: 100%;
   justify-content: center;
+  padding-top: 80px;
 }
 .Amenities-container{
-  width: 900px;
+  width: 40%;
   justify-content: center;
   flex-direction: column;
   gap: 20px;
@@ -903,6 +911,29 @@ input[type="text"], input[type="password"]{
 .right-side{
   flex-direction: column;
   gap: 25px;
+}
+.reviews-container{
+  width: 40%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.review-bar{
+  width: 8;
+}
+.review-add-btn{
+  height: 50px;
+  width: 50px;
+  background-color: #225FFE;
+}
+.the-review{
+  width: 100%;
+  padding: 10px;
+  flex-direction: column;
+  gap: 10px;
+}
+.review-texts-bar{
+  padding-bottom: 20px;
 }
 .adminPanel-Container{
   height: 600px;

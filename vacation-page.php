@@ -163,11 +163,11 @@ $flight_id = $_GET['id'];
             <div class="vacation-duration-bar flex">
                 <div>
                     <p>Ceck in</p>
-                    <input type="date">
+                    <input class="flight-period departure-input" type="date">
                 </div>
                 <div>
                     <p>Check out</p>
-                    <input type="date">
+                    <input class="flight-period arrival-input" type="date">
                 </div>
             </div>
             <div class="booking-buttons flex" style="gap: 20px">
@@ -210,6 +210,7 @@ $flight_id = $_GET['id'];
                         ATM
                     </p>
                 </div>
+
                 <div class="vertical-line">
 
                 </div>
@@ -226,7 +227,44 @@ $flight_id = $_GET['id'];
                         <i class="bi bi-credit-card"></i>
                         ATM
                     </p>
+                </div>
             </div>
+        </div>
+
+        <?php
+
+
+        ?>
+
+        <div class="reviews-container flex">
+            <h1>Add Review</h1>
+            <div>
+                <input type="text" class="review-bar" placeholder="Share your thoughts">
+                <a href="#" class="review-add-btn"></a>
+            </div>
+            <h3>Comments:</h3>
+            <div class="the-review">
+                <div class="review-texts-bar">
+                    <h5>Name of user</h5>
+                    <p>This is a great flight i enjoyed every last second of it at the italian hotel</p>
+                </div>
+                <hr>
+            </div>
+
+            <div class="the-review flex">
+                <div class="review-texts-bar">
+                    <h5>Name of user</h5>
+                    <p>This is a great flight i enjoyed every last second of it at the italian hotel</p>
+                </div>
+                <hr>
+            </div>
+
+            <div class="the-review flex">
+                <div class="review-texts-bar">
+                    <h5>Name of user</h5>
+                    <p>This is a great flight i enjoyed every last second of it at the italian hotel</p>
+                </div>
+                <hr>
             </div>
         </div>
     </div>
