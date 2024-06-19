@@ -69,11 +69,6 @@ closePopup3.addEventListener("click", function (){
     addPopup.style.display = "none";
 })
 
-
-
-
-
-
     
 //this is they expand of the searchbar
 document.addEventListener('DOMContentLoaded', function() {

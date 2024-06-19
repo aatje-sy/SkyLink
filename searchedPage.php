@@ -27,22 +27,21 @@
 
 <?php include_once("navbar.php") ?>
 
+
 <?php
 require_once("connect.php");
 /**
  * @var $pdo ;
  */
-    if (isset($_GET['locationSearch'])){
-    $zoekQuery = "SELECT FROM SkyLink WHERE flight_name LIKE :zoekinput";
-    $stmt = $pdo ->prepare($zoekQuery);
-    $var = "%" . $_GET['search'] . "%";
-    $stmt -> bindParam( ":zoekinput" , $var);
-    if (isset($_GET['submit-searchbar'])){
-        $stmt->execute();
-        }
-    }
-    ?>
+    $sql = "SELECT start_date, end_Date FROM flights";
+    $result = $pdo->query($sql);
+    $execute = $result->execute();
 
+    $searchResult = $result->fetchAll();
+    var_dump($searchResult);
+
+
+?>
 
     <div class="searched-container flex">
         <img class="searched-img" src="imgs/seachedIMG.png" alt="Error">
@@ -56,31 +55,31 @@ require_once("connect.php");
                 <div style="gap: 10px" class="flex">
                     <img class="input-icon" src="imgs/locationIcon.png" alt="">
                     <div>
-                        <input class="Search-input location-input" name="locationSearch" type="text" placeholder="Location">
+                        <input class="Search-input location-input" name="locationSearch" type="text" placeholder="Location" id="locationInput">
                         <p class="search-txt ">Where are you going?</p>
                     </div>
                 </div>
-
-
             </div>
 
             <div class="vacation-Info-Input">
                 <div style="gap: 10px" class="flex">
-                    <input class="Search-input check-in-input flex" name="checkin" type="date" placeholder="Check in">
+                    <input class="Search-input check-in-input flex" name="start_date" type="date" placeholder="Check in" minlength="<?php echo $searchResult[0]["start_date"];?>" maxlength="<?php echo $searchResult[0]["end_Date"];?>">
                 </div>
                 <p class="search-txt">Departure</p>
             </div>
 
             <div class="vacation-Info-Input">
                 <div style="gap: 10px" class="flex">
-                    <input class="Search-input check-out-input flex" name="checkout" type="date" placeholder="Check in">
+                    <input class="Search-input check-out-input flex" name="end_Date" type="date"  minlength="<?php echo $searchResult[0]["start_date"];?>" maxlength="<?php echo $searchResult[0]["end_Date"];?>">
                 </div>
                 <p class="search-txt">Arrival</p>
             </div>
 
             <form method="get" class="search-btn-container flex">
-                <button name="submit-searchbar" class="search-btn" type="submit" >
+                <button class="search-btn">
+                    <a style="padding: 15px" href="searchedPage.php">
                         <img class="search-icon" src="imgs/search-icon.png" alt="??">
+                    </a>
                 </button>
             </form>
         </div>
@@ -90,7 +89,7 @@ require_once("connect.php");
 
 <div class="vacations-container flex">
     <div class="title-searchpage">
-        <h1 class="">Places to stay</h1>
+        <h1>Places to stay</h1>
     </div>
 
     <div class="vacation-search-result flex">

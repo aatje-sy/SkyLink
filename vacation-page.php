@@ -160,8 +160,15 @@ $flight_id = $_GET['id'];
                 <p>4.7</p>
                 <p style="color: #AAAAAA">(111 reviews)</p>
             </div>
-            <div class="vacation-duration-bar">
-
+            <div class="vacation-duration-bar flex">
+                <div>
+                    <p>Ceck in</p>
+                    <input type="date">
+                </div>
+                <div>
+                    <p>Check out</p>
+                    <input type="date">
+                </div>
             </div>
             <div class="booking-buttons flex" style="gap: 20px">
                 <button class="save-button">

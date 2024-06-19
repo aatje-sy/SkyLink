@@ -6,15 +6,18 @@ CREATE TABLE flights(
                         flight_name text,
                         discription text,
                         price DECIMAL(10,2),
-                        main_img text(255)
+                        main_img text(255),
+                        start_date date not null ,
+                        end_Date date not null
 );
 
 
-INSERT INTO flights (flight_name, discription, price, main_img) VALUES ('Italian Landscape', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 299.99, 'italian-land.jpg');
-INSERT INTO flights (flight_name, discription, price, main_img) VALUES ('Thailand Phi Phi Islands', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 399.99, 'phiphiIslands.jpg');
-INSERT INTO flights (flight_name, discription, price, main_img) VALUES ('Greece Santorini Island', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 599.99, 'greece-land.jpg');
-INSERT INTO flights (flight_name, discription, price, main_img) VALUES ('Norway Lofoten Islands', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 599.99, 'Norway-Loften.jpg');
-INSERT INTO flights (flight_name, discription, price, main_img) VALUES ('Japanese Hakone Gate', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 799.99, 'Japan-land.jpg');
+INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Italian Landscape', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 299.99, 'italian-land.jpg', '2024-01-01', '2024-12-31');
+INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Thailand Phi Phi Islands', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 399.99, 'phiphiIslands.jpg', '2024-01-01', '2024-12-31');
+INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Greece Santorini Island', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 599.99, 'greece-land.jpg', '2024-01-01', '2024-12-31');
+INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Norway Lofoten Islands', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 599.99, 'Norway-Loften.jpg', '2024-01-01', '2024-12-31');
+INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Japanese Hakone Gate', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 799.99, 'Japan-land.jpg', '2024-01-01', '2024-12-31');
+INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Syria Palmyra', 'Syria fererfe', 299.98, 'Syria-palmyra.jpg', '2024-01-01', '2024-12-31');
 
 
 DROP TABLE IF EXISTS Images;
@@ -40,6 +43,9 @@ INSERT INTO Images (imgs, flight_id) VALUES ('norway-house.jpg', 4);
 INSERT INTO Images (imgs, flight_id) VALUES ('Japan-Gate.jpg', 5);
 INSERT INTO Images (imgs, flight_id) VALUES ('japan-sideIMG.jpg', 5);
 INSERT INTO Images (imgs, flight_id) VALUES ('Japan-sit.jpg', 5);
+INSERT INTO Images (imgs, flight_id) VALUES ('alhamidiyah.jpg', 6);
+INSERT INTO Images (imgs, flight_id) VALUES ('Masjid.jpg', 6);
+INSERT INTO Images (imgs, flight_id) VALUES ('Syria-alley.jpg', 6);
 
 
 
