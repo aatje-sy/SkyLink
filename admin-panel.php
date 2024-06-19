@@ -7,7 +7,7 @@ session_start();
 if (!isset($_SESSION["loggedUser"])) {
     header("location: index.php");
 }
-include_once ("crud.php")
+include_once("crud.php")
 ?>
 <!doctype html>
 <html lang="en">
@@ -51,14 +51,14 @@ include_once('navbar.php');
             <div class="flex admin-little-header">
                 <h2>Bookings List</h2>
                 <div class="add-Travel-btn" id="add-travel">
-                    <a href="#" style="color: white; text-decoration: none">ADD NEW TRAVEL</a>
+                    <p style="color: white; text-decoration: none">ADD NEW TRAVEL</p>
                 </div>
 
             </div>
             <hr>
         </section>
 
-<!--     add trip popup-->
+        <!--     add trip popup-->
         <div id="add-popup" class="add-popup-container">
             <div class="add-trip-content">
                 <h2>Add Travel</h2>
@@ -68,15 +68,16 @@ include_once('navbar.php');
                         <input class="text-input" type="text" name="add-name" placeholder="Enter a name"/>
                         <input class="text-input" type="text" name="add-info" placeholder="Enter a discription"/>
                         <div class="price-and-status-container">
-                            <input class="text-input price-text" type="text" name="add-price" placeholder="Enter a price"/>
+                            <input class="text-input price-text" type="text" name="add-price"
+                                   placeholder="Enter a price"/>
                             <select class="text-input trip-status" name="travel-status">
                                 <option value="Out of stock">Out of stock</option>
                                 <option value="available ">Available</option>
                             </select>
                         </div>
                     </div>
-<!--                    <input class="upload-input" type="file" data-allow-reorder="true"-->
-<!--                           data-max-file-size="3MB" multiple data-max-file="3">-->
+                    <!--                    <input class="upload-input" type="file" data-allow-reorder="true"-->
+                    <!--                           data-max-file-size="3MB" multiple data-max-file="3">-->
                     <input class="add-trip-submit" name="addSubmit" type="submit" value="Add"/>
                 </form>
             </div>
@@ -91,50 +92,85 @@ include_once('navbar.php');
                 <th>Price</th>
                 <th></th>
             </tr>
-<!--            crud read-->
+            <!--            crud read-->
             <?php
             $sqlRead = "SELECT * FROM flights";
             $stmtRead = $pdo->query($sqlRead);
-            while ($row = $stmtRead->fetch()) { ?>
-            <tr class="vacation-bar">
-                <td class="column-sections">
-                    <img class="admin-vacation-img" src="imgs/italian-land.jpg" alt="img">
-                </td>
-                <td class="column-sections">
-                    <h3><?php echo $row['flight_name']?></h3>
-                </td>
-                <td class="column-sections">
-                    <p>342</p>
-                </td>
-                <td class="column-sections">
-                    <p>2</p>
-                </td>
-                <td class="column-sections">
-                    <p>5</p>
-                </td>
-                <td class="column-sections">
-                    <p> <?php
-                        echo $row['price'];
-                        ?> </p>
-                </td>
-                <td class="column-sections flex" style="justify-content: flex-end">
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/edit-btn.png" alt="">
-                        </a>
-                    </div>
+            foreach ($stmtRead as $row) { ?>
+                <tr class="vacation-bar">
+                    <td class="column-sections">
+                        <img class="admin-vacation-img" src="imgs/italian-land.jpg" alt="img">
+                    </td>
+                    <td class="column-sections">
+                        <h3><?php echo $row['flight_name'] ?></h3>
+                    </td>
+                    <td class="column-sections">
+                        <p><?php echo $row['id'] ?></p>
+                    </td>
+                    <td class="column-sections">
+                        <p>0</p>
+                    </td>
+                    <td class="column-sections">
+                        <p>0</p>
+                    </td>
+                    <td class="column-sections">
+                        <?php echo $row['price'];
+                        ?>
+                    </td>
 
-                    <div class="admin-button">
-                        <a href="#">
-                            <img src="imgs/delete-btn.png" alt="">
-                        </a>
-                    </div>
-                </td>
-            </tr>
+                    <!--             Crud update button-->
+                    <td class="column-sections flex" style="justify-content: flex-end">
+                        <div class="admin-button">
+                            <button class="delete-btn edit-btn" type="button" onclick="displayEditPopup(<?php echo $row['id'] ?>, '<?php echo $row['flight_name']?>', '<?php echo $row['discription']?>', <?php echo $row['price']?>)">
+                                <img src="imgs/edit-btn.png" alt="">
+                            </button>
+                        </div>
+                    </td>
+
+
+                    <!--                 Crud delete submit button-->
+                    <td>
+                        <div class="admin-button">
+                            <form action="admin-panel.php" method="post">
+                                <input type="hidden" name="deleteId" value="<?php echo $row['id']; ?>">
+                                <button class="delete-btn" type="submit" name="deleteSubmit"">
+                                    <img src="imgs/delete-btn.png" alt="Delete icon">
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
             <?php } //*--->while loop end<-----*//?>
         </table>
     </div>
 </div>
+<!--Edit Popup-->
+<?php
+$sqlEdit = "SELECT * FROM flights";
+$stmtEdit = $pdo->query($sqlEdit);
+foreach ($stmtEdit as $row2) { ?>
+<div id="edit-popup" class="add-popup-container"">
+<div class="add-trip-content">
+    <h2>Edit Trip</h2>
+    <i id="edit-popup-close" class="bi bi-x-circle" onclick="closeEditPopup()"></i>
+    <form action="admin-panel.php" method="post">
+        <div class="add-trip-info-container">
+            <input type="hidden" name="edit-id" id="edit-id" value="">
+            <input class="text-input" type="text" id="flightName" value="<?php echo $row2['flight_name']?>" name="update-name"/>
+            <input class="text-input" type="text" id="description" value="<?php echo $row2['discription']?>" name="update-info"/>
+            <div class="price-and-status-container">
+                <input class="text-input price-text" id="price" type="text" value="<?php echo $row2['price']?>" name="update-price"/>
+                <select class="text-input trip-status" name="travel-status">
+                    <option value="Out of stock">Out of stock</option>
+                    <option value="available ">Available</option>
+                </select>
+
+            </div>
+            <input class="add-trip-submit" name="updateSubmit" type="submit" value="Edit"/>
+        </div>
+    </form>
+</div>
 
 </body>
+<?php } //*--->while loop end<-----*//?>
 </html>

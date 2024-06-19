@@ -57,10 +57,9 @@
             <div class="sub-menu">
                 <div class="user-info">
                     <img src="imgs/profile btn.png" alt="profile photo"/>
-                    <h3>Customer name</h3>
+                        <h3><?php echo "Welcome " . $_SESSION["loggedUser"];  ?></h3>
                 </div>
                 <hr/>
-
                 <a href="#" class="sub-menu-link">
                     <i class="bi bi-chat-right-heart"></i>
                     <p>Wish List</p>
