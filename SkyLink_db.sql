@@ -27,7 +27,6 @@ CREATE TABLE Images(
                         flight_id int(255)
 );
 
-INSERT INTO Images (imgs, flight_id) VALUES ('italian-land.jpg', 1);
 INSERT INTO Images (imgs, flight_id) VALUES ('SideImg-Italy.jpg', 1);
 INSERT INTO Images (imgs, flight_id) VALUES ('vacation-1-italy.jpg', 1);
 INSERT INTO Images (imgs, flight_id) VALUES ('hotel-img-vacation1.png', 1);
