@@ -1,5 +1,6 @@
 <?php
 require_once('connect.php');
+include_once("login-logic.php");
 
 /**
  * @var $pdo ;
@@ -25,9 +26,10 @@ $flight_id = $_GET['id'];
     <title>Vacation</title>
 </head>
 <body>
-<?php
-    include_once("navbar.php");
-    include_once ("logIn-Popups.php");
+<?php include_once("navbar.php");
+
+include_once ("logIn-Popups.php");
+
 ?>
 
     <div class="vacation-3icons flex">

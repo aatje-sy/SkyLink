@@ -32,7 +32,7 @@
                 </li>
 
                 <li class="nav-li">
-                    <a href="#" class="nav-item"><span>About</span></a>
+                    <a href="searchedPage.php" class="nav-item"><span>About</span></a>
                 </li>
                 <li class="nav-li">
                     <a href="#" class="nav-item"><span>Contact</span></a>

@@ -65,3 +65,4 @@ CREATE TABLE `users` (
                          `password` varchar(255) NOT NULL,
                          `admin` tinyint(1) NOT NULL DEFAULT '0'
                          );
+INSERT INTO users (name, lastName, email, password, admin) VALUES ('admin', 'a', 'admin@a.com', '$2y$10$t4XTMesq1A55NQ8xW8T0Wuq5B3.INJEMmJiWStOeXUo/HGfjnhY2q', 1);

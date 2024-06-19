@@ -1,5 +1,6 @@
 <?php
-    require_once('connect.php');
+require_once('connect.php');
+include_once("login-logic.php");
 
 /**
  * @var $pdo ;
