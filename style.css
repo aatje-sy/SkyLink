@@ -918,13 +918,26 @@ input[type="text"], input[type="password"]{
   justify-content: center;
   gap: 20px;
 }
+.review-input-container{
+  height: 60px;
+  align-items: center;
+}
 .review-bar{
   width: 80%;
+  height: 50px;
+  border-radius: 20px;
+  border: solid 1px black;
+
 }
 .review-add-btn{
-  height: 50px;
-  width: 50px;
+  text-align: center;
+  align-content: center;
+  display: block;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
   background-color: #225FFE;
+  margin-left: -50px;
 }
 .the-review{
   width: 100%;

@@ -204,8 +204,13 @@ $flight_id = $_GET['id'];
 
         <div class="reviews-container flex">
             <h1>Add Review</h1>
+            <div class="review-input-container flex">
                 <input type="text" class="review-bar" placeholder="Share your thoughts">
-                <a href="#" class="review-add-btn"></a>
+                <a href="#" class="review-add-btn">
+                    <i style="color: white" class="bi bi-chevron-right"></i>
+                </a>
+            </div>
+
             <h3>Comments:</h3>
             <div class="the-review">
                 <div class="review-texts-bar">

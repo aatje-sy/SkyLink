@@ -19,6 +19,12 @@ INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_
 INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Japanese Hakone Gate', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 799.99, 'Japan-land.jpg', '2024-01-01', '2024-12-31');
 INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Syria Palmyra', 'Syria fererfe', 299.98, 'Syria-palmyra.jpg', '2024-01-01', '2024-12-31');
 
+DROP TABLE IF EXISTS reviews;
+CREATE TABLE reviews(
+
+                        comments text(555)
+);
+
 
 DROP TABLE IF EXISTS Images;
 CREATE TABLE Images(
