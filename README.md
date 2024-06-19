@@ -12,8 +12,8 @@ Login: Secure login functionality for users and admins.
 
 
 ### Technologies
-HTML5
-CSS3
-JavaScript
-PHP
-MySQL
+HTML5,
+CSS3,
+JavaScript,
+PHP,
+MySQL,
