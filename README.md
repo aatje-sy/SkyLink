@@ -4,6 +4,7 @@ SkyLink is a dynamic and user-friendly website where users can book travels, pos
 
 ### Features
 Travel Booking: Users can search, view, and book a variety of travels.
+
 Review Posting: Users can post reviews about their travel experiences.
 Management Functionality: Admins have access to a special management panel to oversee travels and users.
 CRUD Operations: Both users and admins can create, read, update, and delete data.
