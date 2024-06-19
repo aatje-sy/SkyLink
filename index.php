@@ -118,7 +118,7 @@ include_once("login-logic.php");
 
         <div class="search-btn-container flex">
             <button class="search-btn">
-                <a href="searchedPage.php">
+                <a style="padding: 15px" href="searchedPage.php">
                     <img class="search-icon" src="imgs/search-icon.png" alt="??">
                 </a>
             </button>

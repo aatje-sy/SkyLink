@@ -5,6 +5,8 @@ require_once('connect.php');
  * @var $pdo ;
  */
 
+$flight_id = $_GET['id'];
+
 ?>
 
 <!doctype html>
@@ -74,18 +76,6 @@ require_once('connect.php');
             <i class="bi bi-x" style="font-size: 25px"></i>
         </div>
     </div>
-
-    <div class="photos-container flex">
-        <main class="main-img-cont">
-            <img class="main-img" src="imgs/italian-land.jpg" alt="mainimg">
-        </main>
-        <aside class="side-img-cont flex">
-                <img class="sideImg" src="imgs/SideImg-Italy.jpg" alt="Sideimg">
-                <img class="sideImg" src="imgs/vacation-1-italy.png" alt="sideImg">
-                <img class="sideImg" src="imgs/hotel-img-vacation1.png" alt="sideImg">
-        </aside>
-    </div>
-
     <?php
     /**
      * @var $pdo ;
@@ -97,12 +87,45 @@ require_once('connect.php');
     $stmt->execute();
     $vacationResult = $stmt->fetch();
 
+    ?>
+
+    <?php
+    /**
+     * @var $pdo ;
+     */
+
+    $sql = "SELECT * FROM Images WHERE flight_id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":id", $_GET['id']);
+    $stmt->execute();
+    $images = $stmt->fetchAll();
+
+    ?>
+
+    <div class="photos-container flex">
+        <main class="main-img-cont">
+            <img class="main-img" src="imgs/<?php echo $vacationResult['main_img'];?>" alt="mainimg">
+        </main>
+        <aside class="side-img-cont flex">
+                <?php
+
+                foreach ($images as $image) {
+                    echo '<img class="sideImg" src="/imgs/'. $image['imgs'] .'" alt="Sideimg">';
+                }
+
+                ?>
+        </aside>
+    </div>
+
+    <?php
+
     if ($vacationResult){
 
         echo'
         
     <div class="vacation-discription-container flex">
         <div class="vacation-discription">
+        <img src="" alt="">
             <div class="vacation-Name">
                 <h1 style="color: black">'. $vacationResult['flight_name'] .'</h1>
             </div>
@@ -137,8 +160,15 @@ require_once('connect.php');
                 <p>4.7</p>
                 <p style="color: #AAAAAA">(111 reviews)</p>
             </div>
-            <div class="vacation-duration-bar">
-
+            <div class="vacation-duration-bar flex">
+                <div>
+                    <p>Ceck in</p>
+                    <input type="date">
+                </div>
+                <div>
+                    <p>Check out</p>
+                    <input type="date">
+                </div>
             </div>
             <div class="booking-buttons flex" style="gap: 20px">
                 <button class="save-button">
@@ -200,6 +230,8 @@ require_once('connect.php');
             </div>
         </div>
     </div>
+
+
 
     <?php include_once ("footer.php")?>
 </body>

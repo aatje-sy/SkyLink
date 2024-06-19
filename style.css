@@ -204,7 +204,6 @@ ul li {
     margin-right: 140px;
   }
 }
-
 .profile-btn {
   background: none;
   border: none;
@@ -662,12 +661,12 @@ input[type="text"], input[type="password"]{
   box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.57);
   border-radius: 10px;
   padding-left: 10px;
-
 }
 .vacation-Info-Input.expanded {
   width: 350px;
   transition: width 0.5s ease;
 }
+
 .input-icon {
   object-fit: contain;
   width: 30px;
@@ -680,7 +679,7 @@ input[type="text"], input[type="password"]{
   color: black;
 }
 .location-input{
-  padding: none;
+  padding: 0;
   width: 200px;
 }
 .search-txt{
@@ -714,7 +713,7 @@ input[type="text"], input[type="password"]{
 .vacation-search-result{
   height: auto;
   width: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   margin-right: 100px;
 }
