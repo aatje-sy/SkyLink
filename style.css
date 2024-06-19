@@ -102,7 +102,7 @@ ul li {
     justify-content: flex-end;
   }
 
-  
+
 }
 
 @media screen and (max-width: 600px) {
@@ -321,7 +321,7 @@ ul li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  z-index: 1;
 }
 .login-content{
   background: white;
@@ -429,7 +429,7 @@ input[type="text"], input[type="password"]{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  z-index: 1;
 }
 .add-trip-content{
   background: white;
@@ -490,13 +490,12 @@ input[type="text"], input[type="password"]{
   border-radius: 0.475rem;
   color: white;
   border: none;
-  margin-top: 1rem;
   font-weight: 600;
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   position: relative;
-  top: 9rem;
+  top: 8rem;
   left: 40rem;
 }
 .upload-input{
@@ -507,7 +506,7 @@ input[type="text"], input[type="password"]{
     width: 600px;
   }
   .add-trip-submit{
-    top: 6rem;
+    top: 5rem;
     left: 24rem;
   }
   .add-trip-content i{
@@ -976,7 +975,10 @@ table{
   text-align: center;
   align-content: center;
 }
-
+.delete-btn {
+  border: none;
+  background: none;
+}
 
 
 .footer{

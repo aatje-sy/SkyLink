@@ -16,7 +16,7 @@ if (isset($_POST["loginSubmit"])) {
     $fetchLogin = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($fetchLogin) {
         if (password_verify($loginPassword, $fetchLogin['password'])) {
-            $_SESSION["loggedUser"] = "yes";
+            $_SESSION["loggedUser"] = $fetchLogin['name'];
             if ($fetchLogin['admin'] == 1) {
                 header("Location: admin-panel.php");
             } else if ($fetchLogin['admin'] == 0) {
@@ -30,6 +30,7 @@ if (isset($_POST["loginSubmit"])) {
         echo "This email does not exist";
     }
 }
+
 
 
 

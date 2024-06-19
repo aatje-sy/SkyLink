@@ -14,7 +14,6 @@ if (navClose) {
   });
 }
 
-
 //* profile photo wrap */
 document.addEventListener("DOMContentLoaded", function() {
     const subMenu = document.getElementById("subMenu");
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
+//* Login&register popups **/
 document.addEventListener("DOMContentLoaded", function(){
     const loginPopup = document.getElementById("login-popup");
     const closePopup = document.getElementById("popup-close");
@@ -37,9 +36,6 @@ document.addEventListener("DOMContentLoaded", function(){
     const registerPopup = document.getElementById("register-popup");
     const closePopup2 = document.getElementById("popup-close2");
     const registerLink = document.getElementById("register-link");
-
-
-
 
     profileBtn.addEventListener("click", function(){
         loginPopup.style.display = "block";
@@ -57,10 +53,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
 })
 
-// add travel popup
-const addTravelBtn = document.getElementById("add-travel");
-const addPopup = document.getElementById("add-popup");
-const closePopup3 = document.getElementById("popup-close3");
+// add trip popup
+let addTravelBtn = document.getElementById("add-travel");
+let addPopup = document.getElementById("add-popup");
+let closePopup3 = document.getElementById("popup-close3");
 
 addTravelBtn.addEventListener("click", function (){
     addPopup.style.display = "block";
@@ -71,10 +67,23 @@ closePopup3.addEventListener("click", function (){
 
 
 
+// edit travel popup
+let editPopup = document.getElementById("edit-popup");
+function displayEditPopup(editId, title, description, price) {
+    editPopup.style.display = "block";
+    document.getElementById("edit-id").value = editId
+    document.getElementById("flightName").value = title
+    document.getElementById("description").value = description
+    document.getElementById("price").value = price
+}
+function closeEditPopup(){
+    editPopup.style.display = "none";
+
+}
 
 
 
-    
+
 //this is they expand of the searchbar
 document.addEventListener('DOMContentLoaded', function() {
     const locationInput = document.querySelector('.location-input');
