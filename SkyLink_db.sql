@@ -19,12 +19,6 @@ INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_
 INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Japanese Hakone Gate', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 799.99, 'Japan-land.jpg', '2024-01-01', '2024-12-31');
 INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Syria Palmyra', 'Syria fererfe', 299.98, 'Syria-palmyra.jpg', '2024-01-01', '2024-12-31');
 
-DROP TABLE IF EXISTS reviews;
-CREATE TABLE reviews(
-
-                        comments text(555)
-);
-
 
 DROP TABLE IF EXISTS Images;
 CREATE TABLE Images(
@@ -66,3 +60,17 @@ CREATE TABLE `users` (
                          `admin` tinyint(1) NOT NULL DEFAULT '0'
                          );
 INSERT INTO users (name, lastName, email, password, admin) VALUES ('admin', 'a', 'admin@a.com', '$2y$10$t4XTMesq1A55NQ8xW8T0Wuq5B3.INJEMmJiWStOeXUo/HGfjnhY2q', 1);
+
+DROP TABLE IF EXISTS reviews;
+CREATE TABLE reviews(
+
+                        comments text(555),
+                        flight_id int,
+                        user_id int
+);
+
+SELECT * FROM `reviews`
+    INNER JOIN flights ON flight_id = flights.id
+    INNER JOIN users ON reviews.user_id = users.id;
+
+;

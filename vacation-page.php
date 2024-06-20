@@ -8,6 +8,7 @@ include_once("login-logic.php");
 
 $flight_id = $_GET['id'];
 
+
 ?>
 
 <!doctype html>
@@ -55,18 +56,13 @@ include_once ("logIn-Popups.php");
     $stmt->execute();
     $vacationResult = $stmt->fetch();
 
-    ?>
 
-    <?php
-    /**
-     * @var $pdo ;
-     */
 
-    $sql = "SELECT * FROM Images WHERE flight_id = :id";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(":id", $_GET['id']);
-    $stmt->execute();
-    $images = $stmt->fetchAll();
+    $sqlImgs = "SELECT * FROM Images WHERE flight_id = :id";
+    $stmtImgs = $pdo->prepare($sqlImgs);
+    $stmtImgs->bindParam(":id", $_GET['id']);
+    $stmtImgs->execute();
+    $images = $stmtImgs->fetchAll();
 
     ?>
 
@@ -200,43 +196,56 @@ include_once ("logIn-Popups.php");
         </div>
 
         <?php
+        /**
+         * @var $pdo ;
+         */
+            if(isset($_POST['review-btn'])){
+              $sqlReview = "INSERT INTO `reviews`(`comments`, `flight_id`, `user_id`) VALUES (:comments, :flightID,:userID)";
+              $stmtReview = $pdo->prepare($sqlReview);
+              $stmtReview -> bindParam(':comments', $_POST['reviewText']);
+              $stmtReview -> bindParam(':flightID', $_GET['id']);
+              $str = "1";
+              $stmtReview -> bindParam(':userID', $str);
+              $stmtReview -> execute();
+            }
 
 
         ?>
 
         <div class="reviews-container flex">
             <h1>Add Review</h1>
-            <div class="review-input-container flex">
-                <input type="text" class="review-bar" placeholder="Share your thoughts">
-                <a href="#" class="review-add-btn">
-                    <i style="color: white" class="bi bi-chevron-right"></i>
-                </a>
-            </div>
+            <form method="post" class="review-input-container flex">
+                <input name="reviewText" type="text" class="review-bar" placeholder="Share your thoughts">
+                <input type="submit" name="review-btn" href="#" class="review-add-btn">
+            </form>
 
             <h3>Comments:</h3>
+            <?php
+            /**
+             * @var $pdo ;
+             */
+            $sqlReviewPreview = "SELECT `comments`, `flight_id` FROM `reviews` WHERE flight_id = :flightID";
+            $stmtReviewDisplay = $pdo->prepare($sqlReviewPreview);
+            $stmtReviewDisplay -> bindParam(':flightID', $_GET['id']);
+            $stmtReviewDisplay -> execute();
+            $reviewDisplay = $stmtReviewDisplay->fetchAll();
+
+                foreach ($reviewDisplay as $review){
+
+
+            ?>
+
             <div class="the-review">
-                <div class="review-texts-bar">
-                    <h5>Name of user</h5>
-                    <p>This is a great flight i enjoyed every last second of it at the italian hotel</p>
-                </div>
+                <form method="get" class="review-texts-bar">
+                    <h3></h3>
+                    <p><?php echo $review['comments']?></p>
+                </form>
                 <hr>
             </div>
+<?php
+                }
+?>
 
-            <div class="the-review flex">
-                <div class="review-texts-bar">
-                    <h5>Name of user</h5>
-                    <p>This is a great flight i enjoyed every last second of it at the italian hotel</p>
-                </div>
-                <hr>
-            </div>
-
-            <div class="the-review flex">
-                <div class="review-texts-bar">
-                    <h5>Name of user</h5>
-                    <p>This is a great flight i enjoyed every last second of it at the italian hotel</p>
-                </div>
-                <hr>
-            </div>
         </div>
     </div>
 
