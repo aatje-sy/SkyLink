@@ -1,13 +1,13 @@
-<!--    login popup-->
 <?php
+
 require_once('connect.php');
 include_once("login-logic.php");
 
 /**
  * @var $pdo ;
  */
-
 if (!isset($_SESSION["loggedUser"])) { ?>
+    <!--    login popup-->
     <div id="login-popup" class="login-popup-container">
         <div class="login-content">
             <h2>Welcome back 👋</h2>

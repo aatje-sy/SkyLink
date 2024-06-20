@@ -33,8 +33,8 @@ include_once("login-logic.php");
 <body>
 
 <!--navbar-->
-<?php include_once("navbar.php");
-
+<?php
+    include_once("navbar.php");
     include_once ("logIn-Popups.php");
 ?>
 
