@@ -18,8 +18,10 @@ if (isset($_POST["loginSubmit"])) {
         if (password_verify($loginPassword, $fetchLogin['password'])) {
             $_SESSION["loggedUser"] = $fetchLogin['name'];
             if ($fetchLogin['admin'] == 1) {
+                $_SESSION["admin_is_logged"] = true;
                 header("Location: admin-panel.php");
             } else if ($fetchLogin['admin'] == 0) {
+                $_SESSION["admin_logged_out"] = false;
                 header("Location: user.php");
             }
             exit;

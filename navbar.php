@@ -32,10 +32,10 @@
                 </li>
 
                 <li class="nav-li">
-                    <a href="searchedPage.php" class="nav-item"><span>About</span></a>
+                    <a href="searchedPage.php" class="nav-item"><span>Trips</span></a>
                 </li>
                 <li class="nav-li">
-                    <a href="#" class="nav-item"><span>Contact</span></a>
+                    <a href="contact.php" class="nav-item"><span>Contact</span></a>
                 </li>
             </ul>
 
@@ -46,44 +46,53 @@
 
         <div class="profile-btn-container">
             <img id="profile-btn"
-                    class="profile-btn"
-                    src="imgs/profile%20btn.png"
-                    alt="Profile"
-                    onclick="toggelMenu()"
+                 class="profile-btn"
+                 src="imgs/profile%20btn.png"
+                 alt="Profile"
+                 onclick="toggelMenu()"
             />
         </div>
-        <?php if (isset($_SESSION["loggedUser"])){ ?>
-        <div class="sub-menu-wrap" id="subMenu">
-            <div class="sub-menu">
-                <div class="user-info">
-                    <img src="imgs/profile btn.png" alt="profile photo"/>
-                        <h3><?php echo "Welcome " . $_SESSION["loggedUser"];  ?></h3>
-                </div>
-                <hr/>
-                <a href="#" class="sub-menu-link">
-                    <i class="bi bi-chat-right-heart"></i>
-                    <p>Wish List</p>
-                </a>
+        <?php if (isset($_SESSION["loggedUser"])) { ?>
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="imgs/profile btn.png" alt="profile photo"/>
+                        <h3><?php echo "Welcome " . $_SESSION["loggedUser"]; ?></h3>
+                    </div>
+                    <hr/>
+                    <a href="#" class="sub-menu-link">
+                        <i class="bi bi-chat-right-heart"></i>
+                        <p>Wish List</p>
+                    </a>
 
-                <a href="#" class="sub-menu-link">
-                    <i class="bi bi-house-door"></i>
-                    <p>Bookings</p>
-                </a>
-                <div class="account-btn-container">
-                    <button class="account-btn">
-                        <a href="user.php" class="sub-menu-login">
-                            <p>Account</p>
-                        </a>
-                    </button>
-                    <button class="login-btn logout">
-                        <a href="logout.php" class="sub-menu-logout">
-                            <p>Logout</p>
-                        </a>
-                    </button>
+                    <a href="#" class="sub-menu-link">
+                        <i class="bi bi-house-door"></i>
+                        <p>Bookings</p>
+                    </a>
+                    <div class="account-btn-container">
+                        <?php if (isset($_SESSION["admin_is_logged"])) { ?>
+                            <button class="account-btn">
+                                <a href="admin-panel.php" class="sub-menu-login">
+                                    <p>ADMIN</p>
+                                </a>
+                            </button>
+                        <?php }
+                        if (isset($_SESSION["admin_logged_out"])) { ?>
+                            <button class="account-btn">
+                                <a href="user.php" class="sub-menu-login">
+                                    <p>Account</p>
+                                </a>
+                            </button>
+                        <?php } ?>
+                        <button class="login-btn logout">
+                            <a href="logout.php" class="sub-menu-logout">
+                                <p>Logout</p>
+                            </a>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <?php }?>
+        <?php } ?>
         <div id="nav-toggle" class="nav-toggel">
             <i class="bi bi-list"></i>
         </div>

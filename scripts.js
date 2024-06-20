@@ -36,21 +36,37 @@ document.addEventListener("DOMContentLoaded", function(){
     const registerPopup = document.getElementById("register-popup");
     const closePopup2 = document.getElementById("popup-close2");
     const registerLink = document.getElementById("register-link");
+    let loginLink = document.getElementById("login-link");
+    let forgotPassPopup = document.getElementById("forgot-pass-popup");
+    let forgotPassClose = document.getElementById("forgot-pass-close");
+    let forgotPassLink = document.getElementById("forgot-pass-link");
+
 
     profileBtn.addEventListener("click", function(){
         loginPopup.style.display = "block";
     })
+
     closePopup.addEventListener("click", function (){
         loginPopup.style.display = "none";
     })
     registerLink.addEventListener("click", function (){
         registerPopup.style.display = "block";
+        loginPopup.style.display = "none";
     })
     closePopup2.addEventListener("click", function (){
         registerPopup.style.display = "none";
-        window.location.href = "index.php";
     })
 
+    forgotPassLink.addEventListener("click", function (){
+        forgotPassPopup.style.display = "block";
+        loginPopup.style.display = "none";
+    })
+    forgotPassClose.addEventListener("click", function (){
+        forgotPassPopup.style.display = "none";
+    })
+    loginLink.addEventListener("click", function (){
+        loginPopup.style.display = "block";
+    })
 })
 
 // add trip popup

@@ -20,7 +20,7 @@ if (!isset($_SESSION["loggedUser"])) { ?>
                 <input class="login-submit" name="loginSubmit" type="submit" value="Login"/>
             </form>
 
-            <a class="forgot-pass" href="#">
+            <a id="forgot-pass-link" class="forgot-pass" href="#">
                 <p>Forgot password?</p>
             </a>
             <div class="register-container">
@@ -47,11 +47,24 @@ if (!isset($_SESSION["loggedUser"])) { ?>
             <input class="login-submit" name="submit" type="submit" value="Create account"/>
         </form>
 
-        <a class="forgot-pass" href="#">
-            <p>Forgot password?</p>
-        </a>
+
         <div class="register-container">
-            <p>Not a Member? <a class="register-link" href="#">Register now</a></p>
+            <p>Already a Member? <a id="login-link" class="register-link" href="#">Login</a></p>
         </div>
     </div>
 </div>
+<!--forgot pass popup-->
+<div id="forgot-pass-popup" class="login-popup-container">
+    <div class="login-content forgot-pass-popup">
+        <h2>Forgot Password?</h2>
+        <i id="forgot-pass-close" class="bi bi-x-circle"></i>
+        <form action="send-pass-reset.php" method="post">
+            <input type="text" name="forgotEmail" placeholder="Enter your email"/>
+            <input class="login-submit" name="forgotSubmit" type="submit" value="Send"/>
+        </form>
+        <div class="register-container">
+            <p>Already a Member? <a id="login-link" class="register-link" href="#">Login</a></p>
+        </div>
+    </div>
+</div>
+<script src="scripts.js"></script>

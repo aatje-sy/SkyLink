@@ -1,10 +1,10 @@
 <?php
+
 session_start();
 if (!isset($_SESSION ["loggedUser"])) {
-    header ("location: index.php");
+    header("location: index.php");
 }
 ?>
-<!--users pagina-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +25,6 @@ if (!isset($_SESSION ["loggedUser"])) {
 <?php
 include_once "navbar.php";
 ?>
-
 <nav class="account-nav-container" id="accountNavContainer">
     <div class="side-bar-toggle" id="sideNavToggle">
         <i class="bi bi-arrow-right-short"></i>
@@ -40,21 +39,21 @@ include_once "navbar.php";
     </div>
 </nav>
 
-<section class="personal-info-page">
+<section class="booking-page">
+    <div class="booking-page-content">
+        <div class="booking-title">
+            <h1>Bookings List</h1>
+        </div>
 
-    <div class="title-container">
-        <h1>Personal info</h1>
-    </div>
-    <div class="form-container">
-        <form class="personal-info-form" action="user.php" method="post">
-            <input class="input" type="text" placeholder="Change your name">
-            <div>
-            <input class="input" type="text" placeholder="Change your last name">
-            </div>
-            <input class="update-profile-submit" type="submit">
-        </form>
+        <div class="booking-card">
+            <p>Trip Name</p>
+            <p>Price</p>
+            <p>Persons</p>
+            <button class="cancel-btn">Cancel</button>
+        </div>
     </div>
 </section>
+
 <script src="sideNav.js"></script>
 </body>
 </html>
