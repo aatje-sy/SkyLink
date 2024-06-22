@@ -1413,10 +1413,6 @@ table {
         padding-left: 30px;
     }
 }
-
-.side-bar-header{
-
-}
 .account-nav-container {
     position: fixed;
     left: -200px;
@@ -1577,4 +1573,128 @@ table {
     background: red;
     color: white;
     cursor: pointer;
+}
+
+
+
+
+
+
+/*contact page*/
+.contact-page{
+
+}
+.container{
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact-content-container{
+    width: 80%;
+    height: 600px;
+    margin-top: 150px;
+}
+.contact-content{
+    display: flex;
+
+}
+.contact-txt-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+.contact-txt{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.contact-txt-container h1{
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 700;
+    font-size: 48px;
+}
+.contact-txt-container p {
+    font-size: 16px;
+    color: #777E90;
+}
+.contact-txt-container img{
+    width: 100%;
+}
+.contact-form-container{
+    width: 100%;
+}
+.contact-form-container form{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.contact-form-container form .input{
+    width: 75%;
+    height: 50px;
+    border-radius: 12px;
+    border: 2px solid #E6E8EC;
+    padding: 8px;
+}
+.contact-form-container form textarea{
+    width: 75%;
+    border-radius: 12px;
+    border: 2px solid #E6E8EC;
+    padding: 8px;
+}
+.contact-form-container form .contact-submit{
+    width: 150px;
+    height: 50px;
+    margin-bottom: 3em;
+    border-radius: 50px;
+    border: none;
+    background: #3a71fe;
+    color: white;
+    font-weight: 550;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+}
+.contact-form-container form .contact-submit:hover{
+    background: #0042eb;
+}
+
+@media screen and (max-width: 950px){
+    .contact-content{
+        flex-direction: column;
+    }
+    .contact-content-container{
+
+    }
+
+}
+@media screen and (max-width: 450px) {
+    .contact-form-container form .input{
+        width: 300px;
+    }
+    .contact-form-container form textarea{
+        width: 300px;
+    }
+
+}
+
+.send-email-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.send-email-container h1{
+    font-size: clamp(3rem, 5vw, 70px);
+    text-align: center;
+}
+.send-img{
+    width: 120px;
 }
