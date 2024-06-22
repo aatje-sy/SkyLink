@@ -57,16 +57,16 @@ document.addEventListener("DOMContentLoaded", function(){
         registerPopup.style.display = "none";
     })
 
-    forgotPassLink.addEventListener("click", function (){
-        forgotPassPopup.style.display = "block";
-        loginPopup.style.display = "none";
-    })
-    forgotPassClose.addEventListener("click", function (){
-        forgotPassPopup.style.display = "none";
-    })
-    loginLink.addEventListener("click", function (){
-        loginPopup.style.display = "block";
-    })
+    // forgotPassLink.addEventListener("click", function (){
+    //     forgotPassPopup.style.display = "block";
+    //     loginPopup.style.display = "none";
+    // })
+    // forgotPassClose.addEventListener("click", function (){
+    //     forgotPassPopup.style.display = "none";
+    // })
+    // loginLink.addEventListener("click", function (){
+    //     loginPopup.style.display = "block";
+    // })
 })
 
 // add trip popup
