@@ -17,6 +17,7 @@ if (isset($_POST["loginSubmit"])) {
     if ($fetchLogin) {
         if (password_verify($loginPassword, $fetchLogin['password'])) {
             $_SESSION["loggedUser"] = $fetchLogin['name'];
+            $_SESSION["bookerID"] = $fetchLogin['id'];
             if ($fetchLogin['admin'] == 1) {
                 $_SESSION["admin_is_logged"] = true;
                 header("Location: admin-panel.php");

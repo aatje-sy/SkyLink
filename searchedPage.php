@@ -32,22 +32,8 @@ include_once("login-logic.php");
 ?>
 
 
-<?php
-require_once("connect.php");
-/**
- * @var $pdo ;
- */
-    $sql = "SELECT start_date, end_Date FROM flights";
-    $result = $pdo->query($sql);
-    $execute = $result->execute();
 
-    $searchResult = $result->fetchAll();
-    var_dump($searchResult);
-
-
-?>
-
-    <div class="searched-container flex">
+    <form method="get" class="searched-container flex">
         <img class="searched-img" src="imgs/seachedIMG.png" alt="Error">
         <div class="search-panel-titleTXT">
             <h1>Unlock the Sky</h1>
@@ -59,16 +45,16 @@ require_once("connect.php");
                 <div style="gap: 10px" class="flex">
                     <img class="input-icon" src="imgs/locationIcon.png" alt="">
                     <div>
-                        <input class="Search-input location-input" name="locationSearch" type="text" placeholder="Location" id="locationInput">
+                        <input class="Search-input location-input" name="locationSearch" type="text" placeholder="Location">
                         <p class="search-txt ">Where are you going?</p>
                     </div>
                 </div>
             </div>
 
             <div class="vacation-Info-Input">
-                <div style="gap: 10px" class="flex">
-                    <input class="Search-input check-in-input flex" name="start_date" type="date" placeholder="Check in" minlength="<?php echo $searchResult[0]["start_date"];?>" maxlength="<?php echo $searchResult[0]["end_Date"];?>">
-                </div>
+                <form method="post" style="gap: 10px" class="flex">
+                    <input class="Search-input check-in-input flex" name="start_date" type="date"  minlength="<?php echo $searchResult[0]["start_date"];?>" maxlength="<?php echo $searchResult[0]["end_Date"];?>">
+                </form>
                 <p class="search-txt">Departure</p>
             </div>
 
@@ -79,15 +65,15 @@ require_once("connect.php");
                 <p class="search-txt">Arrival</p>
             </div>
 
-            <form method="get" class="search-btn-container flex">
-                <button class="search-btn">
+            <div class="search-btn-container flex">
+                <button class="search-btn" name="submitButton">
                     <a style="padding: 15px" href="searchedPage.php">
                         <img class="search-icon" src="imgs/search-icon.png" alt="??">
                     </a>
                 </button>
-            </form>
+            </div>
         </div>
-    </div>
+    </form>
 
     <div style="height: 150px"></div>
 
@@ -98,37 +84,51 @@ require_once("connect.php");
 
     <div class="vacation-search-result flex">
     <?php
+
     /**
      * @var $pdo ;
      */
+    $vacationResult = [];
 
-    $sql = "SELECT id, flight_name, price, main_img FROM flights";
-    $stmt = $pdo->prepare($sql);
-    $execute = $stmt->execute();
-    $resultSearchPage = $stmt->fetchAll();
+    if (isset($_GET['submitButton']) && !empty($_GET['locationSearch'])) {
+        $searchSql = "SELECT id, flight_name, price, main_img FROM `flights` WHERE flight_name LIKE :searchInput";
+        $searchStmt = $pdo->prepare($searchSql);
+        $var = "%" . $_GET['locationSearch'] . "%";
 
+        $searchStmt->bindParam(":searchInput", $var, PDO::PARAM_STR);
+        $searchStmt->execute();
+        $vacationResult = $searchStmt->fetchAll();
+    } else {
+        $sql = "SELECT id, flight_name, price, main_img FROM flights";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $vacationResult = $stmt->fetchAll();
+    }
 
-    foreach ($resultSearchPage as $key => $value)
-
-        echo '
-        <div class="vacations">
-            <a href="vacation-page.php?id='. $value["id"] . '"  style="text-decoration: none">
-                <img class="vacation-img" src="imgs/' . $value["main_img"] . '" alt="">
-                <div class="vacation-base-info flex">
-                    <div class="vacation-name-txt flex">
-                        <h3 style="font-weight: 600;">'. $value["flight_name"] .'</h3>
-                        <p style="color: #AAAAAA">
-                            <img src="imgs/coffee-icon.png" alt=""> Breakfast included
-                        </p>
+    if (!empty($vacationResult)) {
+        foreach ($vacationResult as $value) {
+            echo '
+            <div class="vacations">
+                <a href="vacation-page.php?id='. htmlspecialchars($value["id"]) . '"  style="text-decoration: none">
+                    <img class="vacation-img" src="imgs/' . htmlspecialchars($value["main_img"]) . '" alt="">
+                    <div class="vacation-base-info flex">
+                        <div class="vacation-name-txt flex">
+                            <h3 style="font-weight: 600;">'. htmlspecialchars($value["flight_name"]) .'</h3>
+                            <p style="color: #AAAAAA">
+                                <img src="imgs/coffee-icon.png" alt=""> Breakfast included
+                            </p>
+                        </div>
+                        <div class="price-vacation" style="color: #57C27D"> €' . htmlspecialchars($value["price"]) . '</div>
                     </div>
-                    <div class="price-vacation" style="color: #57C27D"> €' . $value["price"] . '</div>
-                </div>
-            </a>
-        </div>
-        
-      ';
-?>
+                </a>
+            </div>';
+        }
+    } else {
+        echo 'No results found.';
+    }
+    ?>
     </div>
+</div>
 
     <?php include_once ("footer.php")?>
     <script src="scripts.js"></script>

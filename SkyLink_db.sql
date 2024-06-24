@@ -18,6 +18,18 @@ INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_
 INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Norway Lofoten Islands', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 599.99, 'Norway-Loften.jpg', '2024-01-01', '2024-12-31');
 INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Japanese Hakone Gate', 'hvopeahvgowrphbvwovn ovnweovgnw9ov', 799.99, 'Japan-land.jpg', '2024-01-01', '2024-12-31');
 INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Syria Palmyra', 'Syria fererfe', 299.98, 'Syria-palmyra.jpg', '2024-01-01', '2024-12-31');
+INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Saudi Arabia Umrah', 'Saudi Arabia umrah for muslims. Entering certification included', 999.99, 'kaba.jpg', '2024-01-01', '2024-12-31');
+INSERT INTO flights (flight_name, discription, price, main_img, start_date, end_Date) VALUES ('Syria Palmyra', 'Syria fererfe', 299.98, 'Syria-palmyra.jpg', '2024-01-01', '2024-12-31');
+
+DROP TABLE IF EXISTS bookings;
+CREATE TABLE bookings
+(
+
+    id int not NULL AUTO_INCREMENT PRIMARY KEY,
+    userID int,
+    flight_ID int
+
+);
 
 
 DROP TABLE IF EXISTS Images;
@@ -45,10 +57,11 @@ INSERT INTO Images (imgs, flight_id) VALUES ('Japan-sit.jpg', 5);
 INSERT INTO Images (imgs, flight_id) VALUES ('alhamidiyah.jpg', 6);
 INSERT INTO Images (imgs, flight_id) VALUES ('Masjid.jpg', 6);
 INSERT INTO Images (imgs, flight_id) VALUES ('Syria-alley.jpg', 6);
+INSERT INTO Images (imgs, flight_id) VALUES ('Mosque-img.png', 7);
+INSERT INTO Images (imgs, flight_id) VALUES ('WhiteMosque.png', 7);
+INSERT INTO Images (imgs, flight_id) VALUES ('BigClock.jpg', 7);
 
 
-
-SELECT * FROM Images INNER JOIN flights on Images.flight_id = flights.id;
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE `users` (
@@ -69,8 +82,12 @@ CREATE TABLE reviews(
                         user_id int
 );
 
+SELECT * FROM Images INNER JOIN flights on Images.flight_id = flights.id;
+
 SELECT * FROM `reviews`
     INNER JOIN flights ON flight_id = flights.id
     INNER JOIN users ON reviews.user_id = users.id;
 
-;
+SELECT * FROM flights
+    INNER JOIN bookings on flights.id = bookings.flight_ID
+    INNER JOIN users ON bookings.id = users.id;

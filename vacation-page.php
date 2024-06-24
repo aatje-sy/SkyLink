@@ -42,7 +42,10 @@ include_once ("logIn-Popups.php");
             <i class="bi bi-suit-heart-fill" style="display: none;"></i>
         </div>
         <div class="vacation-icons flex back-xButton">
-            <i class="bi bi-x" style="font-size: 25px"></i>
+            <a href="searchedPage.php">
+                <i class="bi bi-x" style="font-size: 25px"></i>
+            </a>
+
         </div>
     </div>
     <?php
@@ -138,9 +141,11 @@ include_once ("logIn-Popups.php");
                 <button class="save-button">
                     Save +
                 </button>
-                <button class="booking-button">
-                    Book Now
-                </button>
+                <form method="post" action="bookingFlightLogic.php">
+                    <button name="bookFlight" type="submit" class="booking-button">
+                        Book Now
+                    </button>
+                </form>
             </div>
 
             <div class="total-bar">
