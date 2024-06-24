@@ -22,6 +22,10 @@
 <body>
 
 <!--navbar-->
+<?php
+//include_once ("logIn-Popups.php");
+//
+//?>
 <header class="header" id="header">
     <nav class="nav-container">
         <a href="index.php" class="nav-logo">SKYLINK</a>

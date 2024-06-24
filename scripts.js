@@ -36,10 +36,10 @@ document.addEventListener("DOMContentLoaded", function(){
     const registerPopup = document.getElementById("register-popup");
     const closePopup2 = document.getElementById("popup-close2");
     const registerLink = document.getElementById("register-link");
-    let loginLink = document.getElementById("login-link");
-    let forgotPassPopup = document.getElementById("forgot-pass-popup");
-    let forgotPassClose = document.getElementById("forgot-pass-close");
-    let forgotPassLink = document.getElementById("forgot-pass-link");
+        // let loginLink = document.getElementById("login-link");
+        // let forgotPassPopup = document.getElementById("forgot-pass-popup");
+        // let forgotPassClose = document.getElementById("forgot-pass-close");
+        // let forgotPassLink = document.getElementById("forgot-pass-link");
 
 
     profileBtn.addEventListener("click", function(){
