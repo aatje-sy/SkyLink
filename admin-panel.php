@@ -9,6 +9,7 @@ if (!isset($_SESSION["loggedUser"])) {
 }
 include_once("crud.php")
 ?>
+<!--Admin penel-->
 <!doctype html>
 <html lang="en">
 <head>
@@ -37,12 +38,17 @@ include_once('navbar.php');
 
 <div class="adminPanel-Container flex">
 
-    <nav class="adminpanel-navbar">
-        <div class="nav-top-section flex">
-            <img src="imgs/profile%20btn.png" alt="profile">
+    <nav class="account-nav-container" id="accountNavContainer">
+        <div class="side-bar-toggle" id="sideNavToggle">
+            <i class="bi bi-arrow-right-short"></i>
         </div>
-        <div class="nav-bottom-section">
-            <h3>Orders</h3>
+        <div class="side-nav-content">
+            <ul>
+                <li><a href="admin-panel.php"><i class="bi bi-person"></i>Personal info</a></li>
+                <li><a href="#"><i class="bi bi-file-lock"></i>Login and security</a></li>
+                <li><a href="#"><i class="bi bi-house-door"></i>Bookings</a></li>
+                <li><a href="#"><i class="bi bi-gear"></i>Settings</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -114,7 +120,7 @@ include_once('navbar.php');
                         <p>0</p>
                     </td>
                     <td class="column-sections">
-                        <?php echo $row['price'];
+                        <?php echo "€" . $row['price'];
                         ?>
                     </td>
 
@@ -170,7 +176,7 @@ foreach ($stmtEdit as $row2) { ?>
         </div>
     </form>
 </div>
-
+<script src="sideNav.js"></script>
 </body>
 <?php } //*--->while loop end<-----*//?>
 </html>

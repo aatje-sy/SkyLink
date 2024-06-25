@@ -34,8 +34,8 @@ include_once("login-logic.php");
 
 <!--navbar-->
 <?php
-    include_once("navbar.php");
-    include_once ("logIn-Popups.php");
+include_once("navbar.php");
+include_once("logIn-Popups.php");
 ?>
 
 
@@ -86,23 +86,80 @@ include_once("login-logic.php");
     <div class="live-anywhere">
         <h3>Live anywhere</h3>
         <p>Keep calm & travel on</p>
-        <div class="vacation-card-container">
-            <div class="vacation-card">
-                <img src="imgs/Mountain-img.png" alt="mountain image">
-                <div class="info-card">
-                    <h4>Italian Landscape</h4>
-                    <div class="vacation-card-details">
-                        <i class="bi bi-cup-hot-fill"></i>
-                        <p>Breakfast included</p>
+        <div class="popular-trips-container">
+            <?php
+            $sqlRead = "SELECT * FROM `flights` WHERE `id` = 1 OR id = 2 OR id = 3;";
+            $readStmt = $pdo->query($sqlRead);
+            foreach ($readStmt as $readRow) {
+                ?>
+                <div class="middle"></div>
+                <div class="vacation-card-container">
+                    <div class="vacation-card">
+                        <img src="imgs/<?php echo $readRow['main_img'] ?>" alt="mountain image">
+                        <div class="info-card">
+                            <h4><?php echo $readRow['flight_name'] ?></h4>
+                            <div class="vacation-card-details">
+                                <i class="bi bi-cup-hot-fill"></i>
+                                <p>Breakfast included</p>
+                            </div>
+                            <p class="card-price"><?php echo "€" . $readRow['price'] ?></p>
+                        </div>
                     </div>
-                    <p class="card-price">€299</p>
                 </div>
+            <?php } ?>
+        </div>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="about-content-container">
+        <div class="about-txt-container">
+            <h3>ABOUT US</h3>
+            <p>Welcome to Skylink, your gateway to the perfect vacation! Whether you're dreaming of a sunny beach
+                getaway, a thrilling adventure, or a cultural city break, we're here to make your travel plans easy and
+                exciting. At Skylink, we believe that everyone deserves a fantastic holiday experience, and we're
+                committed to helping you find the best deals and destinations. <br> <br>
+
+                With a wide range of flight options, personalized recommendations, and 24/7 support, Skylink is your
+                trusted partner in exploring the world. Let's make your next vacation unforgettable!</p>
+        </div>
+
+        <img class="about-img" src="imgs/about-img.png" alt="">
+    </div>
+</section>
+
+<section class="top-values-section">
+    <div class="top-values-content-container">
+        <div class="top-values-txt-container">
+            <h3>Top values for you</h3>
+            <p>Find trips that fit a flexible lifestyle</p>
+        </div>
+        <div class="top-values-container">
+            <div class="top-value">
+                <img src="imgs/value1.png" alt="">
+                <h5>Airport Pickup</h5>
+                <p>We offer escort services from the airport to the hotel.</p>
+            </div>
+            <div class="top-value">
+                <img src="imgs/value2.png" alt="">
+                <h5>Easy booking</h5>
+                <p>We offer escort services from the airport to the hotel.</p>
+            </div>
+            <div class="top-value">
+                <img src="imgs/value3.png" alt="">
+                <h5>Best tour guide</h5>
+                <p>We offer escort services from the airport to the hotel.</p>
+            </div>
+            <div class="top-value">
+                <img src="imgs/value4.png" alt="">
+                <h5>Lots of promos</h5>
+                <p>We offer escort services from the airport to the hotel.</p>
             </div>
         </div>
     </div>
 </section>
 
-<?php include_once("footer.php");?>
+<?php include_once("footer.php"); ?>
 
 </body>
 </html>

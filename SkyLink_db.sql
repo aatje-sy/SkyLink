@@ -5,10 +5,10 @@ CREATE TABLE flights(
                         id int not NULL AUTO_INCREMENT PRIMARY KEY,
                         flight_name text,
                         discription text,
-                        price DECIMAL(10,2),
+                        price DECIMAL,
                         main_img text(255),
-                        start_date date not null ,
-                        end_Date date not null
+                        start_date date null ,
+                        end_Date date null
 );
 
 
@@ -73,6 +73,7 @@ CREATE TABLE `users` (
                          `admin` tinyint(1) NOT NULL DEFAULT '0'
                          );
 INSERT INTO users (name, lastName, email, password, admin) VALUES ('admin', 'a', 'admin@a.com', '$2y$10$t4XTMesq1A55NQ8xW8T0Wuq5B3.INJEMmJiWStOeXUo/HGfjnhY2q', 1);
+INSERT INTO users (name, lastName, email, password, admin) VALUES ('user', 'a', 'user@a.com', '$2y$10$t4XTMesq1A55NQ8xW8T0Wuq5B3.INJEMmJiWStOeXUo/HGfjnhY2q', 0);
 
 DROP TABLE IF EXISTS reviews;
 CREATE TABLE reviews(
