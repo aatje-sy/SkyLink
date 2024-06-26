@@ -99,22 +99,3 @@ function closeEditPopup(){
 
 
 
-
-//this is they expand of the searchbar
-document.addEventListener('DOMContentLoaded', function() {
-    const locationInput = document.querySelector('.location-input');
-    const vacationInfoInput = document.querySelector('.vacation-Info-Input');
-
-    locationInput.addEventListener('input', function() {
-        if (this.value.trim() !== '') {
-            vacationInfoInput.classList.add('focused');
-            vacationInfoInput.classList.add('expanded');
-        } else {
-            vacationInfoInput.classList.remove('focused');
-            vacationInfoInput.classList.remove('expanded');
-        }
-    });
-});
-
-
-

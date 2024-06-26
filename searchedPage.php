@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('connect.php');
 include_once("login-logic.php");
 

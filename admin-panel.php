@@ -99,7 +99,7 @@ include_once('navbar.php');
             foreach ($stmtRead as $row) { ?>
                 <tr class="vacation-bar">
                     <td class="column-sections">
-                        <img class="admin-vacation-img" src="imgs/italian-land.jpg" alt="img">
+                        <img class="admin-vacation-img" src="imgs/<?php echo $row['main_img'] ?>" alt="img">
                     </td>
                     <td class="column-sections">
                         <h3><?php echo $row['flight_name'] ?></h3>

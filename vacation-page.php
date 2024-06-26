@@ -1,6 +1,8 @@
 <?php
+session_start();
 require_once('connect.php');
 include_once("login-logic.php");
+
 
 /**
  * @var $pdo ;
@@ -141,8 +143,9 @@ include_once ("logIn-Popups.php");
                 <button class="save-button">
                     Save +
                 </button>
+                    
                 <form method="post" action="bookingFlightLogic.php">
-                    <button name="bookFlight" type="submit" class="booking-button">
+                    <button name="bookFlight" id="bookButton" type="submit" class="booking-button">
                         Book Now
                     </button>
                 </form>
